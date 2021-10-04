@@ -1,0 +1,17 @@
+project:
+  start: main/usr.json
+  name: rdev
+  files:
+  - main:
+    - usr.json
+    - forms.json
+  - scripts:
+    - gisgmp.js
+    - framework_dinamic_forms.js
+    - api.js
+  - reports:
+    - quitance.docx
+    - charge_group_by_kbk.mrt
+    - org_charge_count.mrt
+    - org_charge_count_full.mrt
+    - charge.mrt

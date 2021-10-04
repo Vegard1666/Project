@@ -1,0 +1,2632 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="2">
+      <responseReport Ref="2" type="Stimulsoft.Report.Dictionary.StiXmlDatabase" isKey="true">
+        <Alias>responseReport</Alias>
+        <Key>5005696ff7804589a80d106b8b211922</Key>
+        <Name>responseReport</Name>
+        <PathData />
+        <PathSchema />
+      </responseReport>
+      <requestReport Ref="3" type="Stimulsoft.Report.Dictionary.StiXmlDatabase" isKey="true">
+        <Alias>requestReport</Alias>
+        <Key />
+        <Name>requestReport</Name>
+        <PathData />
+        <PathSchema />
+      </requestReport>
+    </Databases>
+    <DataSources isList="true" count="20">
+      <Bank Ref="4" type="DataTableSource" isKey="true">
+        <Alias>Bank</Alias>
+        <Columns isList="true" count="3">
+          <value>bik,System.String</value>
+          <value>correspondentBankAccount,System.String</value>
+          <value>OrgAccount_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>40a463911de64c2eb1dcfed3df1f688c</Key>
+        <Name>Bank</Name>
+        <NameInSource>responseReport.Bank</NameInSource>
+      </Bank>
+      <BudgetIndex Ref="5" type="DataTableSource" isKey="true">
+        <Alias>BudgetIndex</Alias>
+        <Columns isList="true" count="6">
+          <value>status,System.String</value>
+          <value>paytReason,System.String</value>
+          <value>taxPeriod,System.String</value>
+          <value>taxDocNumber,System.String</value>
+          <value>taxDocDate,System.String</value>
+          <value>ChargeInfo_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7fcabda92afb4c15bd1fbe9237524f48</Key>
+        <Name>BudgetIndex</Name>
+        <NameInSource>responseReport.BudgetIndex</NameInSource>
+      </BudgetIndex>
+      <ChangeStatusInfo Ref="6" type="DataTableSource" isKey="true">
+        <Alias>ChangeStatusInfo</Alias>
+        <Columns isList="true" count="2">
+          <value>Meaning,System.String</value>
+          <value>ChargeInfo_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>505ca30546c240e9883a53a310b74f72</Key>
+        <Name>ChangeStatusInfo</Name>
+        <NameInSource>responseReport.ChangeStatusInfo</NameInSource>
+      </ChangeStatusInfo>
+      <ChargeInfo Ref="7" type="DataTableSource" isKey="true">
+        <Alias>ChargeInfo</Alias>
+        <Columns isList="true" count="10">
+          <value>ChargeInfo_Id,System.Int32</value>
+          <value>amountToPay,System.String</value>
+          <value>acknowledgmentStatus,System.String</value>
+          <value>supplierBillID,System.String</value>
+          <value>billDate,System.String</value>
+          <value>totalAmount,System.String</value>
+          <value>purpose,System.String</value>
+          <value>kbk,System.String</value>
+          <value>oktmo,System.String</value>
+          <value>ExportChargesResponse_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>86bfe9c53be14002aac4996008965ae7</Key>
+        <Name>ChargeInfo</Name>
+        <NameInSource>responseReport.ChargeInfo</NameInSource>
+      </ChargeInfo>
+      <ExportChargesResponse Ref="8" type="DataTableSource" isKey="true">
+        <Alias>ExportChargesResponse</Alias>
+        <Columns isList="true" count="7">
+          <value>ExportChargesResponse_Id,System.Int32</value>
+          <value>hasMore,System.String</value>
+          <value>Id,System.String</value>
+          <value>RqId,System.String</value>
+          <value>recipientIdentifier,System.String</value>
+          <value>timestamp,System.String</value>
+          <value>template_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>da8893f96bda451095ecfa0def074fb7</Key>
+        <Name>ExportChargesResponse</Name>
+        <NameInSource>responseReport.ExportChargesResponse</NameInSource>
+      </ExportChargesResponse>
+      <Payee Ref="9" type="DataTableSource" isKey="true">
+        <Alias>Payee</Alias>
+        <Columns isList="true" count="5">
+          <value>Payee_Id,System.Int32</value>
+          <value>name,System.String</value>
+          <value>inn,System.String</value>
+          <value>kpp,System.String</value>
+          <value>ChargeInfo_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>67e2103d4bcf4ad792a33a7cf071086e</Key>
+        <Name>Payee</Name>
+        <NameInSource>responseReport.Payee</NameInSource>
+      </Payee>
+      <OrgAccount Ref="10" type="DataTableSource" isKey="true">
+        <Alias>OrgAccount</Alias>
+        <Columns isList="true" count="3">
+          <value>OrgAccount_Id,System.Int32</value>
+          <value>accountNumber,System.String</value>
+          <value>Payee_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>8d577b40920a4f1e996d03cc1d9fb5d2</Key>
+        <Name>OrgAccount</Name>
+        <NameInSource>responseReport.OrgAccount</NameInSource>
+      </OrgAccount>
+      <Payer Ref="11" type="DataTableSource" isKey="true">
+        <Alias>Payer</Alias>
+        <Columns isList="true" count="3">
+          <value>payerIdentifier,System.String</value>
+          <value>payerName,System.String</value>
+          <value>ChargeInfo_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>5121032424ea49ef8cd9371b718c69e8</Key>
+        <Name>Payer</Name>
+        <NameInSource>responseReport.Payer</NameInSource>
+      </Payer>
+      <stylesheet Ref="12" type="DataTableSource" isKey="true">
+        <Alias>stylesheet</Alias>
+        <Columns isList="true" count="2">
+          <value>stylesheet_Id,System.Int32</value>
+          <value>version,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>6a78eb2822d64d3ca6df7f1e2db40d51</Key>
+        <Name>stylesheet</Name>
+        <NameInSource>responseReport.stylesheet</NameInSource>
+      </stylesheet>
+      <template Ref="13" type="DataTableSource" isKey="true">
+        <Alias>template</Alias>
+        <Columns isList="true" count="3">
+          <value>template_Id,System.Int32</value>
+          <value>match,System.String</value>
+          <value>stylesheet_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>00f70391ea4e430680762c761dac8343</Key>
+        <Name>template</Name>
+        <NameInSource>responseReport.template</NameInSource>
+      </template>
+      <Beneficiary Ref="14" type="DataTableSource" isKey="true">
+        <Alias>Beneficiary</Alias>
+        <Columns isList="true" count="3">
+          <value>inn,System.String</value>
+          <value>kpp,System.String</value>
+          <value>TimeConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>466856ec65e448f484fbf3c183c76cb3</Key>
+        <Name>Beneficiary</Name>
+        <NameInSource>requestReport.Beneficiary</NameInSource>
+      </Beneficiary>
+      <ChargesConditions Ref="15" type="DataTableSource" isKey="true">
+        <Alias>ChargesConditions</Alias>
+        <Columns isList="true" count="2">
+          <value>SupplierBillID,System.String</value>
+          <value>ChargesExportConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>79632d2fe06446a9a1c2eb32cf41a33c</Key>
+        <Name>ChargesConditions</Name>
+        <NameInSource>requestReport.ChargesConditions</NameInSource>
+      </ChargesConditions>
+      <ChargesExportConditions Ref="16" type="DataTableSource" isKey="true">
+        <Alias>ChargesExportConditions</Alias>
+        <Columns isList="true" count="3">
+          <value>ChargesExportConditions_Id,System.Int32</value>
+          <value>kind,System.String</value>
+          <value>ExportChargesRequest_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>867764f27351467b8d1fa06888f363e9</Key>
+        <Name>ChargesExportConditions</Name>
+        <NameInSource>requestReport.ChargesExportConditions</NameInSource>
+      </ChargesExportConditions>
+      <ExportChargesRequest Ref="17" type="DataTableSource" isKey="true">
+        <Alias>ExportChargesRequest</Alias>
+        <Columns isList="true" count="5">
+          <value>ExportChargesRequest_Id,System.Int32</value>
+          <value>Id,System.String</value>
+          <value>timestamp,System.String</value>
+          <value>senderIdentifier,System.String</value>
+          <value>senderRole,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>2cb1762fd6ea45b7ab04eaacd88d588f</Key>
+        <Name>ExportChargesRequest</Name>
+        <NameInSource>requestReport.ExportChargesRequest</NameInSource>
+      </ExportChargesRequest>
+      <KBKlist Ref="18" type="DataTableSource" isKey="true">
+        <Alias>KBKlist</Alias>
+        <Columns isList="true" count="2">
+          <value>KBK,System.String</value>
+          <value>TimeConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>54a5aa5e3d754e52be86196ef7eb94e1</Key>
+        <Name>KBKlist</Name>
+        <NameInSource>requestReport.KBKlist</NameInSource>
+      </KBKlist>
+      <Paging Ref="19" type="DataTableSource" isKey="true">
+        <Alias>Paging</Alias>
+        <Columns isList="true" count="3">
+          <value>pageNumber,System.String</value>
+          <value>pageLength,System.String</value>
+          <value>ExportChargesRequest_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>4a5c0f52174f4400b4521cd2f8bffdb4</Key>
+        <Name>Paging</Name>
+        <NameInSource>requestReport.Paging</NameInSource>
+      </Paging>
+      <PayersConditions Ref="20" type="DataTableSource" isKey="true">
+        <Alias>PayersConditions</Alias>
+        <Columns isList="true" count="2">
+          <value>PayerIdentifier,System.String</value>
+          <value>ChargesExportConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>a72151729f7c40a4970c9974fc703116</Key>
+        <Name>PayersConditions</Name>
+        <NameInSource>requestReport.PayersConditions</NameInSource>
+      </PayersConditions>
+      <TimeConditions Ref="21" type="DataTableSource" isKey="true">
+        <Alias>TimeConditions</Alias>
+        <Columns isList="true" count="2">
+          <value>TimeConditions_Id,System.Int32</value>
+          <value>ChargesExportConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>f0cc451ee71745859ca56a03a1bfd168</Key>
+        <Name>TimeConditions</Name>
+        <NameInSource>requestReport.TimeConditions</NameInSource>
+      </TimeConditions>
+      <TimeInterval Ref="22" type="DataTableSource" isKey="true">
+        <Alias>TimeInterval</Alias>
+        <Columns isList="true" count="3">
+          <value>startDate,System.String</value>
+          <value>endDate,System.String</value>
+          <value>TimeConditions_Id,System.Int32</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>c1146477256747179936892bb4381995</Key>
+        <Name>TimeInterval</Name>
+        <NameInSource>requestReport.TimeInterval</NameInSource>
+      </TimeInterval>
+      <SenderProvidedResponseDataRequestRejected Ref="23" type="DataTableSource" isKey="true">
+        <Alias>SenderProvidedResponseDataRequestRejected</Alias>
+        <Columns isList="true" count="2">
+          <value>RejectionReasonCode,System.String</value>
+          <value>RejectionReasonDescription,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>SenderProvidedResponseDataRequestRejected</Name>
+        <NameInSource>responseReport.SenderProvidedResponseDataRequestRejected</NameInSource>
+      </SenderProvidedResponseDataRequestRejected>
+    </DataSources>
+    <Relations isList="true" count="17">
+      <ChargeInfo Ref="24" type="DataRelation" isKey="true">
+        <Alias>ChargeInfo</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>ChargeInfo</Name>
+        <NameInSource>ChargeInfo_BudgetIndex</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </ChargeInfo>
+      <ChargeInfo Ref="25" type="DataRelation" isKey="true">
+        <Alias>ChargeInfo</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Name>ChargeInfo</Name>
+        <NameInSource>ChargeInfo_ChangeStatusInfo</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </ChargeInfo>
+      <ExportChargesResponse Ref="26" type="DataRelation" isKey="true">
+        <Alias>ExportChargesResponse</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ExportChargesResponse_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>ExportChargesResponse</Name>
+        <NameInSource>ExportChargesResponse_ChargeInfo</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ExportChargesResponse_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="8" />
+      </ExportChargesResponse>
+      <template Ref="27" type="DataRelation" isKey="true">
+        <Alias>template</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>template_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="8" />
+        <Dictionary isRef="1" />
+        <Name>template</Name>
+        <NameInSource>template_ExportChargesResponse</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>template_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="13" />
+      </template>
+      <ChargeInfo Ref="28" type="DataRelation" isKey="true">
+        <Alias>ChargeInfo</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="9" />
+        <Dictionary isRef="1" />
+        <Name>ChargeInfo</Name>
+        <NameInSource>ChargeInfo_Payee</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </ChargeInfo>
+      <ChargeInfo Ref="29" type="DataRelation" isKey="true">
+        <Alias>ChargeInfo</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="11" />
+        <Dictionary isRef="1" />
+        <Name>ChargeInfo</Name>
+        <NameInSource>ChargeInfo_Payer</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargeInfo_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </ChargeInfo>
+      <stylesheet Ref="30" type="DataRelation" isKey="true">
+        <Alias>stylesheet</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>stylesheet_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="13" />
+        <Dictionary isRef="1" />
+        <Name>stylesheet</Name>
+        <NameInSource>stylesheet_template</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>stylesheet_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="12" />
+      </stylesheet>
+      <Payee Ref="31" type="DataRelation" isKey="true">
+        <Alias>Payee</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>Payee_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="10" />
+        <Dictionary isRef="1" />
+        <Name>Payee</Name>
+        <NameInSource>Payee_OrgAccount</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>Payee_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="9" />
+      </Payee>
+      <OrgAccount Ref="32" type="DataRelation" isKey="true">
+        <Alias>OrgAccount</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>OrgAccount_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>OrgAccount</Name>
+        <NameInSource>OrgAccount_Bank</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>OrgAccount_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="10" />
+      </OrgAccount>
+      <TimeConditions Ref="33" type="DataRelation" isKey="true">
+        <Alias>TimeConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>TimeConditions</Name>
+        <NameInSource>TimeConditions_Beneficiary</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="21" />
+      </TimeConditions>
+      <ChargesExportConditions Ref="34" type="DataRelation" isKey="true">
+        <Alias>ChargesExportConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="15" />
+        <Dictionary isRef="1" />
+        <Name>ChargesExportConditions</Name>
+        <NameInSource>ChargesExportConditions_ChargesConditions</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="16" />
+      </ChargesExportConditions>
+      <ExportChargesRequest Ref="35" type="DataRelation" isKey="true">
+        <Alias>ExportChargesRequest</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ExportChargesRequest_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="16" />
+        <Dictionary isRef="1" />
+        <Name>ExportChargesRequest</Name>
+        <NameInSource>ExportChargesRequest_ChargesExportConditions</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ExportChargesRequest_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="17" />
+      </ExportChargesRequest>
+      <TimeConditions Ref="36" type="DataRelation" isKey="true">
+        <Alias>TimeConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="18" />
+        <Dictionary isRef="1" />
+        <Name>TimeConditions</Name>
+        <NameInSource>TimeConditions_KBKlist</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="21" />
+      </TimeConditions>
+      <ExportChargesRequest Ref="37" type="DataRelation" isKey="true">
+        <Alias>ExportChargesRequest</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ExportChargesRequest_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="19" />
+        <Dictionary isRef="1" />
+        <Name>ExportChargesRequest</Name>
+        <NameInSource>ExportChargesRequest_Paging</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ExportChargesRequest_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="17" />
+      </ExportChargesRequest>
+      <ChargesExportConditions Ref="38" type="DataRelation" isKey="true">
+        <Alias>ChargesExportConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="20" />
+        <Dictionary isRef="1" />
+        <Name>ChargesExportConditions</Name>
+        <NameInSource>ChargesExportConditions_PayersConditions</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="16" />
+      </ChargesExportConditions>
+      <ChargesExportConditions Ref="39" type="DataRelation" isKey="true">
+        <Alias>ChargesExportConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="21" />
+        <Dictionary isRef="1" />
+        <Name>ChargesExportConditions</Name>
+        <NameInSource>ChargesExportConditions_TimeConditions</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>ChargesExportConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="16" />
+      </ChargesExportConditions>
+      <TimeConditions Ref="40" type="DataRelation" isKey="true">
+        <Alias>TimeConditions</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ChildColumns>
+        <ChildSource isRef="22" />
+        <Dictionary isRef="1" />
+        <Name>TimeConditions</Name>
+        <NameInSource>TimeConditions_TimeInterval</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>TimeConditions_Id</value>
+        </ParentColumns>
+        <ParentSource isRef="21" />
+      </TimeConditions>
+    </Relations>
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="41" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="27">
+        <ReportTitleBand1 Ref="42" type="ReportTitleBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,1.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="43" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,19,1.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="41" />
+              <Parent isRef="42" />
+              <Text>Государственная информационная система о государственных и муниципальных платежах</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>ReportTitleBand1</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </ReportTitleBand1>
+        <HeaderBand10 Ref="44" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text11 Ref="45" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="41" />
+              <Parent isRef="44" />
+              <Text>Предоставление информации об начисление</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderBand10</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand10>
+        <HeaderRequest Ref="46" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.4,19,1.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text2 Ref="47" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,19,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="41" />
+              <Parent isRef="46" />
+              <Text>Данные запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderRequest</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderRequest>
+        <ExportPaymentsRequestTable Ref="48" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,6.8,19,3.2</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="8">
+            <ExportPaymentsRequestTable_Cell1 Ref="49" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>d70a9716aebe4c928f3391289566e328</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Идентификатор запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </ExportPaymentsRequestTable_Cell1>
+            <ExportPaymentsRequestTable_Cell2 Ref="50" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>5a9abaae06cb4768894f2c68a26ac78b</Guid>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesRequest.Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </ExportPaymentsRequestTable_Cell2>
+            <ExportPaymentsRequestTable_Cell3 Ref="51" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>b28e77001bc042ae9e75d7f93e3bbe61</Guid>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Дата и время формирования запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </ExportPaymentsRequestTable_Cell3>
+            <ExportPaymentsRequestTable_Cell4 Ref="52" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>783c36105f1b495a90b574395cca4c13</Guid>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Format("{0:dd.MM.yyyy HH:mm:ss.f}", DateTime.Parse(ExportChargesRequest.timestamp))}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </ExportPaymentsRequestTable_Cell4>
+            <ExportPaymentsRequestTable_Cell5 Ref="53" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>1152c5e0457e4bf59f5796295bdb430a</Guid>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>УРН участника-отправителя запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </ExportPaymentsRequestTable_Cell5>
+            <ExportPaymentsRequestTable_Cell6 Ref="54" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>38cf1ca4bba7406eb4438debda7d6f4a</Guid>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesRequest.senderIdentifier}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </ExportPaymentsRequestTable_Cell6>
+            <ExportPaymentsRequestTable_Cell7 Ref="55" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.4,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>42d2742c4a6a4f34a0f994815d85de51</Guid>
+              <ID>15</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell7</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Полномочие участника-отправителя сообщения, с которым происходит обращение к ГИС ГМП</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </ExportPaymentsRequestTable_Cell7>
+            <ExportPaymentsRequestTable_Cell8 Ref="56" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,2.4,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>4c642f43b96e46d680180841300ee99c</Guid>
+              <ID>16</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsRequestTable_Cell8</Name>
+              <Page isRef="41" />
+              <Parent isRef="48" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesRequest.senderRole}*</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </ExportPaymentsRequestTable_Cell8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ExportChargesRequest</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>fdfb2d1fa9b342c5b44d9b7295a76f6c</Guid>
+          <Name>ExportPaymentsRequestTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>4</RowCount>
+          <Sort isList="true" count="0" />
+        </ExportPaymentsRequestTable>
+        <TableChargesExportConditions Ref="57" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,10.8,19,0.8</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="2">
+            <TableChargesExportConditions_Cell1 Ref="58" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableChargesExportConditions_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="57" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Тип запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </TableChargesExportConditions_Cell1>
+            <TableChargesExportConditions_Cell2 Ref="59" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>2</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableChargesExportConditions_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="57" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Switch(ChargesExportConditions.kind=="CHARGE", "Все неоплаченные начисления",
+ChargesExportConditions.kind=="CHARGENOTFULLMATCHED", "Начисления, не полностью сквитированные с платежами",
+ChargesExportConditions.kind=="CHARGESTATUS", "Начисления и статусы их квитирования",
+ChargesExportConditions.kind=="CHARGE-PRIOR", "Неоплаченные предварительные начисления",
+ChargesExportConditions.kind=="CHARGE-PRIOR-NOTFULLMATCHED", "Предварительные начисления, не полностью сквитированные с платежами",
+ChargesExportConditions.kind=="CHARGE-PRIOR-STATUS", "Предварительные начисления и статусы их квитирования",
+ChargesExportConditions.kind=="TEMP-CHARGING", "Неоплаченные предварительные начисление, сформированные ГИС ГМП",
+ChargesExportConditions.kind=="TEMP-CHARGING-NOTFULLMATCHED", "Предварительные начисления, сформированные ГИС ГМП, не полностью сквитированные с платежами",
+ChargesExportConditions.kind=="TEMP-CHARGING-STATUS", "Предварительные начисления, сформированные ГИС ГМП, и статусы их квитирования"
+)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </TableChargesExportConditions_Cell2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>ChargesExportConditions</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MinHeight>0.4</MinHeight>
+          <Name>TableChargesExportConditions</Name>
+          <NumberID>6</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>1</RowCount>
+          <Sort isList="true" count="0" />
+        </TableChargesExportConditions>
+        <PagingTable Ref="60" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,12.4,19,1.6</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="4">
+            <PagingTable_Cell1 Ref="61" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>c7428907e3d341488753b79a5addf035</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>PagingTable_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="60" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Номер страницы предоставления информации</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </PagingTable_Cell1>
+            <PagingTable_Cell2 Ref="62" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>c35e9f1d18854de280d7e2fc3679d540</Guid>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>PagingTable_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="60" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Paging.pageNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </PagingTable_Cell2>
+            <PagingTable_Cell3 Ref="63" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>323d0f3583434b278717636205a1c15b</Guid>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>PagingTable_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="60" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Количество элементов на странице предоставления информации</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </PagingTable_Cell3>
+            <PagingTable_Cell4 Ref="64" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>7fdf83876d124e768caa4f9a22a2e283</Guid>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>PagingTable_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="60" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Paging.pageLength}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </PagingTable_Cell4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>ExportPaymentsRequest_Paging</DataRelationName>
+          <DataSourceName>Paging</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>78d305c465ae4f7a916ea42db68fd8df</Guid>
+          <MinHeight>0.4</MinHeight>
+          <Name>PagingTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>2</RowCount>
+          <Sort isList="true" count="0" />
+        </PagingTable>
+        <HeaderBand7 Ref="65" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,14.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text8 Ref="66" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>dc69410bdfe24b15afb2affec5849ab9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="41" />
+              <Parent isRef="65" />
+              <Text>Запрос за временной интервал</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>2d20738bb09d45ac9d867b4d985d0734</Guid>
+          <Name>HeaderBand7</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand7>
+        <TimeIntervalTCTable Ref="67" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,16.4,19,1.6</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="4">
+            <TimeIntervalTCTable_Cell1 Ref="68" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>TimeInterval.startDate,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>8b880519ec9b4f88bf7b0e9082b62c8b</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TimeIntervalTCTable_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="67" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Начальная дата</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </TimeIntervalTCTable_Cell1>
+            <TimeIntervalTCTable_Cell2 Ref="69" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>TimeInterval.startDate,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>2ee4ba2af62547f78bc60cf109a26e6b</Guid>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TimeIntervalTCTable_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="67" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Format("{0:dd.MM.yyyy HH:mm:ss.f}", DateTime.Parse(TimeInterval.startDate))}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </TimeIntervalTCTable_Cell2>
+            <TimeIntervalTCTable_Cell3 Ref="70" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>TimeInterval.endDate,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>21b5ef5279ef4378a4d111406152ab9b</Guid>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TimeIntervalTCTable_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="67" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Конечная дата</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </TimeIntervalTCTable_Cell3>
+            <TimeIntervalTCTable_Cell4 Ref="71" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>TimeInterval.endDate,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>020f540cedb84bb8890655b4abf56686</Guid>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TimeIntervalTCTable_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="67" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Format("{0:dd.MM.yyyy HH:mm:ss.f}", DateTime.Parse(TimeInterval.endDate))}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+            </TimeIntervalTCTable_Cell4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>TimeConditions_TimeInterval</DataRelationName>
+          <DataSourceName>TimeInterval</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>e4aa5a7d447a4c6ebb7f65ccc9d15cee</Guid>
+          <MinHeight>0.4</MinHeight>
+          <Name>TimeIntervalTCTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>2</RowCount>
+          <Sort isList="true" count="0" />
+        </TimeIntervalTCTable>
+        <HeaderBand5 Ref="72" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,18.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text6 Ref="73" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>9422f9f6f9bb41159288ae5bb295ff95</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="41" />
+              <Parent isRef="72" />
+              <Text>Запрос по идентификатору плательщика</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>e199a7b42a3347de9e46011c75e8819d</Guid>
+          <Name>HeaderBand5</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand5>
+        <PayersConditionsTable2 Ref="74" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,20.4,19,0.8</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="2">
+            <TableCell3 Ref="75" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>PayersConditions.PayerIdentifier,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>6ee5dbff3f1a440781f476065030540a</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="74" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Идентификатор плательщика</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </TableCell3>
+            <TableCell4 Ref="76" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>PayersConditions.PayerIdentifier,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>f97863297628491b8390f36bf80639de</Guid>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="74" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{PayersConditions.PayerIdentifier}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </TableCell4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>PayersConditions</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>b975960584824b789a0814e2a03570cd</Guid>
+          <MinHeight>0.2</MinHeight>
+          <Name>PayersConditionsTable2</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>1</RowCount>
+          <Sort isList="true" count="0" />
+        </PayersConditionsTable2>
+        <HeaderBand4 Ref="77" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,22,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text5 Ref="78" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>68e6dff3c1d240ca9b43ab73247dedb6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="41" />
+              <Parent isRef="77" />
+              <Text>Запрос по УИН</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>6f9bbca4becb4ddebf7db2920b2fb7bf</Guid>
+          <Name>HeaderBand4</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand4>
+        <ChargesConditionsTable2 Ref="79" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,23.6,19,0.8</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="2">
+            <TableCell1 Ref="80" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ChargesConditions.SupplierBillID,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>f454e4ad14954bb09e0c822bc7988687</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="79" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>УИН</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </TableCell1>
+            <TableCell2 Ref="81" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ChargesConditions.SupplierBillID,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>0e169d0a629d4ae6a79b93fe046dca10</Guid>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="79" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargesConditions.SupplierBillID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </TableCell2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ChargesConditions</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>0155350b35f747a9aaf5152de91f2db4</Guid>
+          <MinHeight>0.2</MinHeight>
+          <Name>ChargesConditionsTable2</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>1</RowCount>
+          <Sort isList="true" count="0" />
+        </ChargesConditionsTable2>
+        <Table1 Ref="82" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,25.2,19,1.4</ClientRectangle>
+          <ColumnCount>1</ColumnCount>
+          <Components isList="true" count="1">
+            <TableCell5 Ref="83" type="TableCell" isKey="true">
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0,0,19,1.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>5f75fa0f06bf4aa4ad1893c2e644b6a7</Guid>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="82" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>*{Switch(
+	ExportChargesRequest.senderRole=="1","ГАН (главный администратор доходов бюджета, имеющий в своем ведении администраторов доходов бюджета и (или) осуществляющий функции и полномочия учредителя в отношении государственных (муниципальных) учреждений)",
+	ExportChargesRequest.senderRole=="2","ГАН (орган государственной власти субъектов Российской Федерации (орган местного самоуправления), обеспечивающий информационное взаимодействие с ГИС ГМП государственных (муниципальных) учреждений и (или) администраторов доходов бюджета)",
+	ExportChargesRequest.senderRole=="3","АН (администратор доходов бюджета, главный администратор доходов бюджета)",
+	ExportChargesRequest.senderRole=="4","АН (государственное (муниципальное) учреждение)",
+	ExportChargesRequest.senderRole=="5","ГАП (оператор по переводу денежных средств, обеспечивающий информационное взаимодействие с ГИС ГМП иных операторов по переводу денежных средств и (или) банковских платежных агентов (субагентов), и (или) платежных агентов)",
+	ExportChargesRequest.senderRole=="6","ГАП (орган государственной власти субъектов Российской Федерации (орган местного самоуправления), обеспечивающий информационное взаимодействие с ГИС ГМП финансовых органов и (или) местных администраций, и (или) государственных (муниципальных) учреждений, осуществляющих прием в кассу от плательщиков наличных денежных средств)",
+	ExportChargesRequest.senderRole=="7","АП (оператор по переводу денежных средств)",
+	ExportChargesRequest.senderRole=="8","АП (организация почтовой связи)",
+	ExportChargesRequest.senderRole=="9","АП (финансовый орган)",
+	ExportChargesRequest.senderRole=="10","АП (местная администрация)"
+	)}
+	{Switch(
+	ExportChargesRequest.senderRole=="11","АП (банковский платежный агент)",
+	ExportChargesRequest.senderRole=="12","АП (банковский платежный субагент)",
+	ExportChargesRequest.senderRole=="13","АП (платежный агент)",
+	ExportChargesRequest.senderRole=="14","АП (государственное (муниципальное) учреждение, осуществляющее прием в кассу от плательщиков наличных денежных средств)",
+	ExportChargesRequest.senderRole=="15","ГАЗ (уполномоченный многофункциональный центр, обеспечивающий информационное взаимодействие с ГИС ГМП многофункциональных центров)",
+	ExportChargesRequest.senderRole=="16","ГАЗ (орган государственной власти субъекта Российской Федерации (орган местного самоуправления), обеспечивающий информационное взаимодействие с ГИС ГМП многофункциональных центров и (или) органов государственной власти (органов местного самоуправления), обладающих правом получать информацию из ГИС ГМП при предоставлении государственных (муниципальных) услуг и (или) выполнении государственных (муниципальных) функций, и не осуществляющих администрирование платежей, его территориальные органы; орган государственной власти (орган местного самоуправления), обладающий правом получать информацию из ГИС ГМП при предоставлении государственных (муниципальных) услуг и (или) выполнении государственных (муниципальных) функций, и не осуществляющий администрирование платежей, его территориальные органы)",
+	ExportChargesRequest.senderRole=="17","АЗ (оператор единого портала)",
+	ExportChargesRequest.senderRole=="18","АЗ (оператор регионального портала)",
+	ExportChargesRequest.senderRole=="19","АЗ (многофункциональный центр)",
+	ExportChargesRequest.senderRole=="20","АП (органы управления государственными внебюджетными фондами Российской Федерации)"
+	)}
+	{Switch(
+	ExportChargesRequest.senderRole=="22","АЗ (орган государственной власти (орган местного самоуправления), обладающий правом получать информацию из ГИС ГМП при предоставлении государственных (муниципальных) услуг и (или) выполнении государственных (муниципальных) функций, и не осуществляющий администрирование платежей, его территориальные органы)",
+	ExportChargesRequest.senderRole=="23","АП (территориальный орган Федерального казначейства)",
+	ExportChargesRequest.senderRole=="24","ГАН (орган государственной власти, обязанность которого направлять информацию в ГИС ГМП установлена федеральными законами, его территориальные органы)",
+	ExportChargesRequest.senderRole=="25","ГАН (оператор системы «Электронный бюджет»)",
+	ExportChargesRequest.senderRole=="27","АН (орган государственной власти, обязанность которого направлять информацию в ГИС ГМП установлена федеральными законами, его территориальные органы)",
+	ExportChargesRequest.senderRole=="28","ГАП (оператор системы «Электронный бюджет»)",
+	ExportChargesRequest.senderRole=="31","ГАЗ (оператор системы «Электронный бюджет»)"
+	)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </TableCell5>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ExportPaymentsRequest</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>40f6695cbd6b4c9dab70f76a69074daa</Guid>
+          <MinHeight>0.2</MinHeight>
+          <Name>Table1</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>1</RowCount>
+          <Sort isList="true" count="0" />
+        </Table1>
+        <HeaderBand2 Ref="84" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,27.4,19,1.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text3 Ref="85" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,19,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <Guid>944b57ce0add498e84d0c4cc4d14839c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="41" />
+              <Parent isRef="84" />
+              <Text>Данные ответа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>9b492ef58fde4e6a8f437f355ad976f7</Guid>
+          <Name>HeaderBand2</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand2>
+        <ExportPaymentsResponseTable Ref="86" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,29.8,19,3.2</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="8">
+            <ExportPaymentsResponseTable_Cell1 Ref="87" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Идентификатор ответа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell1>
+            <ExportPaymentsResponseTable_Cell2 Ref="88" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesResponse.Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell2>
+            <ExportPaymentsResponseTable_Cell3 Ref="89" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Идентификатор запроса</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell3>
+            <ExportPaymentsResponseTable_Cell4 Ref="90" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesResponse.RqId}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell4>
+            <ExportPaymentsResponseTable_Cell5 Ref="91" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>15</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>УРН участника получателя</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell5>
+            <ExportPaymentsResponseTable_Cell6 Ref="92" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>16</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ExportChargesResponse.recipientIdentifier}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell6>
+            <ExportPaymentsResponseTable_Cell7 Ref="93" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,2.4,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>20</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell7</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Дата и время формирования ответа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell7>
+            <ExportPaymentsResponseTable_Cell8 Ref="94" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,2.4,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>21</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>ExportPaymentsResponseTable_Cell8</Name>
+              <Page isRef="41" />
+              <Parent isRef="86" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Format("{0:dd.MM.yyyy}", ExportChargesResponse.timestamp)} {Format("{0:HH:mm:ss}", ExportChargesResponse.timestamp)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExportPaymentsResponseTable_Cell8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ExportChargesResponse</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>ExportPaymentsResponseTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>4</RowCount>
+          <Sort isList="true" count="0" />
+        </ExportPaymentsResponseTable>
+        <HeaderBand14 Ref="95" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,33.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text15 Ref="96" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>466170a1ecc24f70b290274131505309</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="41" />
+              <Parent isRef="95" />
+              <Text>Начисление</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>4d03e5bbd328409eaba611434eedd8b5</Guid>
+          <Name>HeaderBand14</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand14>
+        <ChargeInfoTable Ref="97" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanBreak>True</CanBreak>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,35.4,19,6.4</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="16">
+            <Table1_Cell1 Ref="98" type="TableCell" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <Font>Arial,9</Font>
+              <ID>35</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <ParentJoin>36</ParentJoin>
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <TextBrush>Black</TextBrush>
+            </Table1_Cell1>
+            <Table1_Cell2 Ref="99" type="TableCell" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_Line_x003D__x003D_1_x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9,Bold</Font>
+              <ID>36</ID>
+              <Join>True</Join>
+              <JoinCells isList="true" count="2">
+                <value>35</value>
+                <value>36</value>
+              </JoinCells>
+              <JoinHeight>1</JoinHeight>
+              <JoinWidth>2</JoinWidth>
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <ParentJoin>36</ParentJoin>
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Line}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Table1_Cell2>
+            <Table1_Cell3 Ref="100" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>УИП</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell3>
+            <Table1_Cell4 Ref="101" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.ChargeInfo_Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell4>
+            <Table1_Cell5 Ref="102" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>УИН</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell5>
+            <Table1_Cell6 Ref="103" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.supplierBillID}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell6>
+            <Table1_Cell7 Ref="104" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,2.4,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell7</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Назначение начисления</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell7>
+            <Table1_Cell8 Ref="105" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,2.4,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell8</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.purpose}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell8>
+            <Table1_Cell9 Ref="106" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,3.2,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>15</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell9</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Сумма начисления</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell9>
+            <Table1_Cell10 Ref="107" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,3.2,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>16</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell10</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.totalAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell10>
+            <Table1_Cell11 Ref="108" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,4,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>20</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell11</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Дата начисления</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell11>
+            <Table1_Cell12 Ref="109" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,4,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>21</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell12</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.billDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell12>
+            <Table1_Cell13 Ref="110" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,4.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>25</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell13</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>КБК</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell13>
+            <Table1_Cell14 Ref="111" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,4.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>26</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell14</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.kbk}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell14>
+            <Table1_Cell15 Ref="112" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,5.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>30</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell15</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Код ОКТМО</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell15>
+            <Table1_Cell16 Ref="113" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,5.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>31</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table1_Cell16</Name>
+              <Page isRef="41" />
+              <Parent isRef="97" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{ChargeInfo.oktmo}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table1_Cell16>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ChargeInfo</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>ChargeInfoTable</Name>
+          <NumberID>37</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>8</RowCount>
+          <Sort isList="true" count="0" />
+        </ChargeInfoTable>
+        <HeaderBand16 Ref="114" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,42.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text17 Ref="115" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>d2f87828044d43609fb8965de81eefc2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="41" />
+              <Parent isRef="114" />
+              <Text>Сведения о плательщике</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>f0cb52e143bd4ea8a33ab1d00073970f</Guid>
+          <Name>HeaderBand16</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand16>
+        <PayerTable Ref="116" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,44.2,19,2.4</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="6">
+            <Table3_Cell1 Ref="117" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Плательщик</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell1>
+            <Table3_Cell2 Ref="118" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payer.payerName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell2>
+            <Table3_Cell3 Ref="119" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Иднтификатор</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell3>
+            <Table3_Cell4 Ref="120" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payer.payerIdentifier}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell4>
+            <Table3_Cell5 Ref="121" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Номер счета</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell5>
+            <Table3_Cell6 Ref="122" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table3_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="116" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payer.ChargeInfo_Id}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table3_Cell6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>ChargeInfo_Payer</DataRelationName>
+          <DataSourceName>Payer</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="97" />
+          <Name>PayerTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>3</RowCount>
+          <Sort isList="true" count="0" />
+        </PayerTable>
+        <HeaderBand17 Ref="123" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,47.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text18 Ref="124" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>e97db3ffac7d4f4c95e09eb1ca87f899</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="41" />
+              <Parent isRef="123" />
+              <Text>Сведения о получателе средств</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>163cf57e045c4c9c851799eb66b870e1</Guid>
+          <Name>HeaderBand17</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand17>
+        <PayeeTable Ref="125" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,49,19,2.4</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="6">
+            <Table4_Cell1 Ref="126" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Наименование</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell1>
+            <Table4_Cell2 Ref="127" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payee.name}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell2>
+            <Table4_Cell3 Ref="128" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>ИНН</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell3>
+            <Table4_Cell4 Ref="129" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payee.inn}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell4>
+            <Table4_Cell5 Ref="130" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>КПП</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell5>
+            <Table4_Cell6 Ref="131" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table4_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="125" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Payee.kpp}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table4_Cell6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>ChargeInfo_Payee</DataRelationName>
+          <DataSourceName>Payee</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="97" />
+          <Name>PayeeTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>3</RowCount>
+          <Sort isList="true" count="0" />
+        </PayeeTable>
+        <HeaderBand19 Ref="132" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,52.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text20 Ref="133" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,-0.2,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>d6c5f9b49ac04037a57a37aa094f8214</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="41" />
+              <Parent isRef="132" />
+              <Text>Данные банка, в котором открыт счет</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>d3ccc354678a4067842def8b9126c34a</Guid>
+          <Name>HeaderBand19</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand19>
+        <BankTable Ref="134" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,53.8,19,1.6</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="4">
+            <BankTable_Cell1 Ref="135" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Bank.bik,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>BankTable_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="134" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>БИК</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </BankTable_Cell1>
+            <BankTable_Cell2 Ref="136" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Bank.bik,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>BankTable_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="134" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Bank.bik}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </BankTable_Cell2>
+            <BankTable_Cell3 Ref="137" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Bank.correspondentBankAccount,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>BankTable_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="134" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Номер корреспондентского счета</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+            </BankTable_Cell3>
+            <BankTable_Cell4 Ref="138" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Bank.correspondentBankAccount,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>BankTable_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="134" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{Bank.correspondentBankAccount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+            </BankTable_Cell4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>OrgAccount_Bank</DataRelationName>
+          <DataSourceName>Bank</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="97" />
+          <MinHeight>0.60000000000000009</MinHeight>
+          <Name>BankTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>2</RowCount>
+          <Sort isList="true" count="0" />
+        </BankTable>
+        <HeaderBand18 Ref="139" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,56.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text19 Ref="140" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>6ff746a74441469287e43d2e82bf320b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="41" />
+              <Parent isRef="139" />
+              <Text>Реквизиты начисления</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>ad24afb53f3b4087bfc3dbd301c09895</Guid>
+          <Name>HeaderBand18</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand18>
+        <BudgetIndexTable Ref="141" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,57.8,19,4</ClientRectangle>
+          <ColumnCount>2</ColumnCount>
+          <Components isList="true" count="10">
+            <Table5_Cell1 Ref="142" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>0</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell1</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Статус плательщика</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell1>
+            <Table5_Cell2 Ref="143" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell2</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{BudgetIndex.status}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell2>
+            <Table5_Cell3 Ref="144" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>5</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell3</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Основание платежа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell3>
+            <Table5_Cell4 Ref="145" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,0.8,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>6</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell4</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{BudgetIndex.paytReason}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell4>
+            <Table5_Cell5 Ref="146" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,1.6,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>10</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell5</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Налоговый период или код таможенного органа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell5>
+            <Table5_Cell6 Ref="147" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,1.6,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>11</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{BudgetIndex.taxPeriod}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell6>
+            <Table5_Cell7 Ref="148" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,2.4,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>15</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell7</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Номер документа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell7>
+            <Table5_Cell8 Ref="149" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,2.4,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>16</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell8</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{BudgetIndex.taxDocNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell8>
+            <Table5_Cell9 Ref="150" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,3.2,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>20</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell9</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>Дата документа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell9>
+            <Table5_Cell10 Ref="151" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.6,3.2,9.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <ID>21</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>Table5_Cell10</Name>
+              <Page isRef="41" />
+              <Parent isRef="141" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{BudgetIndex.taxDocDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Table5_Cell10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>ChargeInfo_BudgetIndex</DataRelationName>
+          <DataSourceName>BudgetIndex</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="97" />
+          <Name>BudgetIndexTable</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <Sort isList="true" count="0" />
+        </BudgetIndexTable>
+        <HeaderBand1 Ref="152" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,62.6,19,1.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text4 Ref="153" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,19,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <Guid>af384a3967504d989e43badb5de02fbb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="41" />
+              <Parent isRef="152" />
+              <Text>Данные ответа</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>d27d9ee95d94497ea9d0eb47884d1308</Guid>
+          <Name>HeaderBand1</Name>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+        </HeaderBand1>
+        <Table27 Ref="154" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,65,19,0.8</ClientRectangle>
+          <ColumnCount>1</ColumnCount>
+          <Components isList="true" count="1">
+            <TableCell6 Ref="155" type="TableCell" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Guid>c184825c3e0745b29be0d3d267565be5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <ID>1</ID>
+              <JoinCells isList="true" count="0" />
+              <Margins>0,0,0,0</Margins>
+              <Name>TableCell6</Name>
+              <Page isRef="41" />
+              <Parent isRef="154" />
+              <Restrictions>AllowMove, AllowSelect, AllowChange</Restrictions>
+              <Text>{SenderProvidedResponseDataRequestRejected.RejectionReasonDescription}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TableCell6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>SenderProvidedResponseDataRequestRejected</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>64577ff97aa947f1a118682aa7cb8a66</Guid>
+          <Name>Table27</Name>
+          <NumberID>25</NumberID>
+          <Page isRef="41" />
+          <Parent isRef="41" />
+          <RowCount>1</RowCount>
+          <Sort isList="true" count="0" />
+        </Table27>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>6f954957914c402bbd01732518525ef1</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="156" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="157" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/24/2021 12:38:17 PM</ReportChanged>
+  <ReportCreated>8/15/2021 7:37:22 PM</ReportCreated>
+  <ReportGuid>7b72359e524f4b858b1a59dcc7885cbb</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2018.2.2.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

@@ -1,0 +1,7918 @@
+{
+	"version": "v2021.07.20",
+	"settings": {
+		"project": {
+			"title": "ГИС ГМП"
+		}
+	},
+	"interface": {
+		"hideTabs": [
+			{
+				"table": "doc_type",
+				"relation": "payer"
+			},
+			{
+				"table": "sender_role",
+				"relation": "organization"
+			},
+			{
+				"table": "payer_status",
+				"relation": "charge_data"
+			},
+			{
+				"table": "payer_status",
+				"relation": "charge_data_template"
+			},
+			{
+				"table": "payt_reason",
+				"relation": "charge_data"
+			},
+			{
+				"table": "payt_reason",
+				"relation": "charge_data_template"
+			},
+			{
+				"table": "organization",
+				"relation": "organization"
+			}
+		]
+	},
+	"securityPolicies": {
+		"auth": [
+			{
+				"type": "esia",
+				"defaultGroup": "Operator"
+			}
+		],
+		"appGroup": {
+			"name": "GmpApp"
+		},
+		"groups": [
+			{
+				"recid": "43a3d1b2-a296-4bee-a21c-19d2e1b24679",
+				"name": "Administrators",
+				"description": "Администратор",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Administrators"
+				]
+			},
+			{
+				"recid": "43a3d1b2-a296-4bee-a21c-19d2e1b24678",
+				"name": "Administrators_Region",
+				"description": "Администратор региона",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Administrators_Region"
+				]
+			},
+			{
+				"recid": "43a3d1b2-a296-4bee-a21c-19d2e1b24677",
+				"name": "Administrators_organization",
+				"description": "Администратор организации",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Administrators_organization"
+				]
+			},
+			{
+				"recid": "43a3d1b2-a296-4bee-a21c-19d2e1b24676",
+				"name": "Main_operator",
+				"description": "Главный оператор",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Main_operator"
+				]
+			},
+			{
+				"recid": "43a3d1b2-a296-4bee-a21c-19d2e1b24675",
+				"name": "Operator",
+				"description": "Оператор",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Operator"
+				]
+			},
+			{
+				"recid": "0fa42f6f-5d6e-463b-b9e1-ddb50e7ae870",
+				"name": "Assistant",
+				"description": "Помощник",
+				"parentGroup": "GmpApp",
+				"roles": [
+					"Assistant"
+				]
+			}
+		],
+		"users": [
+			{
+				"name": "Administrator",
+				"description": "Администратор",
+				"login": "admin",
+				"password": "admin",
+				"email": "admin@mfc.ru",
+				"parentGroups": [
+					"Administrators"
+				]
+			},
+			{
+				"name": "Test",
+				"description": "Test",
+				"login": "test",
+				"password": "test",
+				"email": "test@mfc.ru",
+				"parentGroups": [
+					"Operator"
+				]
+			}
+		],
+		"roles": [
+			{
+				"name": "Assistant",
+				"privileges": [
+					"Assistant_Priv"
+				],
+				"dataPolicies": [
+					"charge_delete_own_draft",
+					"charge_read_own",
+					"charge_write_own",
+					"template_own",
+					"payment_own_organization",
+					"payment_export_own",
+					"charge_export_own",
+					"charge_write_own_draft",
+					"income_own_organization",
+					"income_request_own"
+				]
+			},
+			{
+				"name": "Operator",
+				"privileges": [
+					"Operator_Priv"
+				],
+				"dataPolicies": [
+					"charge_delete_own_draft",
+					"charge_read_own",
+					"charge_organization_read_optional",
+					"charge_write_own",
+					"charge_organization_write_optional",
+					"template_operator",
+					"payment_own_organization",
+					"payment_export_own",
+					"charge_export_own",
+					// "payment_export_policy",
+					// "charge_export_policy",
+					"payment_agregator",
+					"income_own_organization",
+					"income_request_own"
+				]
+			},
+			{
+				"name": "Main_operator",
+				"privileges": [
+					"Main_operator_Priv"
+				],
+				"dataPolicies": [
+					"charge_delete_draft",
+					"charge_own_organization",
+					"template_own_organization",
+					"payment_own_organization_and_child",
+					"payment_export_policy",
+					// "charge_export_policy",
+					"payment_agregator",
+					"payment_export_own_organization_and_child",
+					"charge_export_own_organization_and_child",
+					"income_own_organization_and_child",
+					"income_request_own_organization_and_child"
+				]
+			},
+			{
+				"name": "Administrators_Region",
+				"privileges": [
+					"Administrators_Region_Priv"
+				],
+				"dataPolicies": [
+					"charge_delete_draft",
+					"payment_export_policy",
+					"charge_export_policy",
+					"payment_own_organization"
+				]
+			},
+			{
+				"name": "Administrators",
+				"privileges": [
+					"Administrators_Priv"
+				],
+				"dataPolicies": [
+				]
+			},
+			{
+				"name": "Administrators_organization",
+				"privileges": [
+					"Administrators_organization_Priv"
+				],
+				"dataPolicies": [
+					"charge_own_organization",
+					"charge_delete_draft",
+					"template_own_organization",
+					"payment_own_organization_and_child",
+					"users_own_organization",
+					"organization_own_organization",
+					"payment_export_policy",
+					// "charge_export_policy",
+					"payment_export_own_organization_and_child",
+					"charge_export_own_organization_and_child",
+					"income_own_organization_and_child",
+					"income_request_own_organization_and_child"
+				]
+			}
+		],
+		"privileges": [
+			{
+				"name": "Assistant_Priv",
+				"label": "Операции помощника",
+				"description": "Операции помощника",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//методы контекстного меню					
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр начислений
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "chargeMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//зависимости для реестра начислений
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//шаблоны начислений
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "templateMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр платежей
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "paymentMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//экспорт платежей 
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"delete",
+							"create"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"income",
+						"objectType":"table",
+						"accessLevels":[ "read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "incomeMenuGroup",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					}
+				]
+			},
+			{
+				"name": "Operator_Priv",
+				"label": "Операции оператора",
+				"description": "Описание",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// просмотр таблицы sender_role
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр начислений
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "chargeMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//зависимости для реестра начислений
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//шаблоны начислений
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "templateMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр платежей
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "paymentMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//экспорт платежей 
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"delete",
+							"create"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// Доступ к истории запросов на шлюз по записи
+					{
+						"objectName": "request_history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"income",
+						"objectType":"table",
+						"accessLevels":[ "read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "incomeMenuGroup",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					}
+				]
+			},
+			{
+				"name": "Main_operator_Priv",
+				"label": "Операции верховного оператора",
+				"description": "Описание",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// просмотр таблицы sender_role
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр начислений
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "chargeMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//зависимости для реестра начислений
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//шаблоны начислений
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "templateMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр платежей
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "paymentMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//экспорт платежей 
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "MenuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// Доступ к истории запросов на шлюз по записи
+					{
+						"objectName": "request_history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"income",
+						"objectType":"table",
+						"accessLevels":[ "read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "incomeMenuGroup",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					}
+				]
+			},
+			{
+				"name": "Administrators_organization_Priv",
+				"label": "Операции админа организации",
+				"description": "Описание",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр начислений
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "chargeMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//зависимости для реестра начислений
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//шаблоны начислений
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "templateMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр платежей
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "paymentMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//пользователи
+					{
+						"objectName": "usersMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "users",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_groups",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//организации
+					{
+						"objectName": "organizationMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organizationRolesMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//экспорт платежей 
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"delete",
+							"create"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "MenuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// Доступ к истории запросов на шлюз по записи
+					{
+						"objectName": "request_history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"income",
+						"objectType":"table",
+						"accessLevels":[ "read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "incomeMenuGroup",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					}	
+				]
+			},
+			{
+				"name": "Administrators_Priv",
+				"label": "Операции админа",
+				"description": "Описание",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": ["read", "delete"]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "users_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "mainMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "responses_log",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"delete"
+						]
+					},
+					{
+						"objectName": "responses_log_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "organization",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "request",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "users",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_groups",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//экспорт платежей
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//массовый импорт начислений 
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "MenuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// Доступ к истории запросов на шлюз по записи
+					{
+						"objectName": "request_history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					//	Реестр зачислений
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "income",
+						"objectType": "table",
+						"accessLevels": ["read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					}
+				]
+			},
+			{
+				"name": "Administrators_Region_Priv",
+				"label": "Операции админа региона",
+				"description": "Описание",
+				"isEnabled": true,
+				"permissions": [
+					// отчеты
+					{
+						"objectName": "charge_group_by_kbk",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "org_charge_count_full",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "charge",
+						"objectType": "report",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_payer_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "update_charge_template_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "get_payment_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр начислений
+					{
+						"objectName": "charge",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_import_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "chargeMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refund",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "refundMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//зависимости для реестра начислений
+					{
+						"objectName": "payer",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_data_template",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_data",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//реестр платежей
+					{
+						"objectName": "payment",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "paymentMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//справочники
+					{
+						"objectName": "dictsMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "doc_type",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "oksm",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "sender_role",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "organization_roles",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payer_status",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "payt_reason",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					//пользователи
+					{
+						"objectName": "usersMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "users",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_groups",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//организации
+					{
+						"objectName": "organizationMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organizationMenuGenerateByApiItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organizationRolesMenuItem",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "organization",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					//экспорт платежей 
+					{
+						"objectName": "payment_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "charge_export",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "update_payment_export_menu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					//доступ к отчетам
+					{
+						"objectName": "reportsMenuItem",
+						"objectType": "MenuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					// Доступ к истории запросов на шлюз по записи
+					{
+						"objectName": "request_history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create"
+						]
+					},
+					//	Реестр зачислений
+					{
+						"objectName":"trans_kind",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"ed_code",
+						"objectType":"table",
+						"accessLevels":[ "read", "write", "create", "delete" ]
+					},
+					{
+						"objectName":"income",
+						"objectType":"table",
+						"accessLevels":[ "read"]
+					},
+					{
+						"objectName":"income_request",
+						"objectType":"table",
+						"accessLevels":["read", "write", "create", "delete" ]
+					},
+					{
+						"objectName": "incomeMenuGroup",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					}
+				]
+			}
+		],
+		"dataPolicies": [
+			{
+				"name": "charge_write_own_draft",
+				"label": "Создание начислений только в статусе Черновик",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"query": "['acknowledgment_status', '=', '6']",
+						"accessLevel": "write"
+					}
+				]
+			},
+			{
+				"name": "payment_export_policy",
+				"label": "Только чтение запросов экспорта в статусе ОтветПолучен",
+				"objects": [
+					"payment_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from payment_export where status_request != 3",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from payment_export where status_request = 1",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "charge_export_policy",
+				"label": "Только чтение запросов экспорта в статусе ОтветПолучен",
+				"objects": [
+					"charge_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge_export where status_request != 3",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from charge_export where status_request = 1",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "payment_export_own",
+				"label": "Чтение и удаление только своих запросов экспорта",
+				"objects": [
+					"payment_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from payment_export where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from payment_export where reccreatedby = '@activeUser.recid' and '@activeRecord.status = 1",
+						"accessLevel": "delete"
+					},
+					{
+						"sqlQuery": "select * from payment_export where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "write"
+					}
+				]
+			},
+			{
+				"name": "charge_export_own",
+				"label": "Чтение и удаление только своих запросов экспорта",
+				"objects": [
+					"charge_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge_export where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "read"
+					},
+					 {
+						"sqlQuery": "select * from charge_export where '@activeRecord.status_request = 1",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "charge_write_own",
+				"label": "Редактирование своих начислений",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "write"
+					}
+				]
+			},
+			{
+				"name": "charge_organization_write_optional",
+				"label": "Редактирование начислений всей организации",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where payee in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid') and charge_organization_write = true)",
+						"accessLevel": "write"
+					}
+				]
+			},
+			{
+				"name": "charge_read_own",
+				"label": "Просмотр своих начислений",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "charge_organization_read_optional",
+				"label": "Просмотр начислений всей организации",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where payee in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid') and charge_organization_read = true)",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "charge_delete_own_draft",
+				"label": "Удаление только своих начислений",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where reccreatedby = '@activeUser.recid' and acknowledgment_status = 6",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "charge_delete_draft",
+				"label": "Удаление начислений только в статусе Черновик",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"query": "['acknowledgment_status', '=', '6']",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "charge_own_organization",
+				"label": "Просмотр начислений только в рамках своей организации",
+				"objects": [
+					"charge"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge where payee in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "template_own_organization",
+				"label": "Работа с шаблонами начислений только в рамках своей организации",
+				"objects": [
+					"charge_data_template"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				//выбираются записи у которых создатель относится к той же организации что и смотрящий
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby in (select rdev___auth_users.recid::text from rdev___auth_users left join users on users.login = rdev___auth_users.login where users.organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby in (select rdev___auth_users.recid::text from rdev___auth_users left join users on users.login = rdev___auth_users.login where users.organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby in (select rdev___auth_users.recid::text from rdev___auth_users left join users on users.login = rdev___auth_users.login where users.organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "template_operator",
+				"label": "Просмотр шаблонов начислений только в рамках своей организации, редактирование и удаление только своих",
+				"objects": [
+					"charge_data_template"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				//выбираются записи у которых создатель относится к той же организации что и смотрящий
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby in (select rdev___auth_users.recid::text from rdev___auth_users left join users on users.login = rdev___auth_users.login where users.organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "template_own",
+				"label": "Просмотр шаблонов начислений, редактирование и удаление только своих",
+				"objects": [
+					"charge_data_template"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from charge_data_template where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "payment_own_organization",
+				// https://rm.mfc.ru/issues/56771
+				// теперь связь платежа идет через инн
+				"label": "Просмотр платежей только в рамках своей организации",
+				"objects": [
+					"payment"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from payment where payee_inn in (select inn from organization where generate_by_api is distinct from true and recid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "payment_own_organization_and_child",
+				// https://rm.mfc.ru/issues/56771
+				// теперь связь платежа идет через инн
+				"label": "Просмотр платежей только в рамках своей организации и дочерних",
+				"objects": [
+					"payment"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery":  "select payment.* FROM payment WHERE payee_inn IN (SELECT inn FROM organization WHERE generate_by_api is distinct FROM true AND recid IN (SELECT organizationid FROM users WHERE login IN (SELECT login FROM rdev___auth_users WHERE recid = '@activeUser.recid'))) or ( SELECT  parent_organization FROM organization WHERE organization.inn = payee_inn) = ( SELECT  organizationid FROM users WHERE login IN ( SELECT  login FROM rdev___auth_users WHERE recid = '@activeUser.recid'))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "payment_agregator",
+				// https://rm.mfc.ru/issues/56771
+				// теперь связь платежа идет через инн
+				"label": "Просмотр платежей либо своей организации, либо агрегетора (зависит от типа взаимодействия организации пользователя)",
+				"objects": [
+					"payment"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select p.* from users u join organization o on o.recid = u.organizationid left join organization o2 on o2.recid = o.aggregator join payment p on p.payee_inn = case when o.interaction_through_the_aggregator = true then o2.inn else o.inn end where o.generate_by_api is distinct from true and u.recid in (select recid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "users_own_organization",
+				"label": "Работа с пользователями только в рамках своей организации",
+				"objects": [
+					"users"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from users where organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from users where organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "write"
+					},
+					{
+						"sqlQuery": "select * from users where organizationid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "organization_own_organization",
+				"label": "Редактирование организаций только в рамках своей организации",
+				"objects": [
+					"organization"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from organization where generate_by_api is distinct from true and recid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')) or recstate = 0",
+						"accessLevel": "write"
+					}
+				]
+			},
+			{
+				"name": "payment_export_own_organization_and_child",
+				"label": "Чтение экспорта платежей только своей и дочерних организаций",
+				"objects": [
+					"payment_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select payment_export.* from payment_export join rdev___auth_users as au on au.recid::text = payment_export.reccreatedby join users as u on u.login = au.login join organization as o on o.recid = u.organizationid where o.recid in (select organization.recid from organization where organization.recid in (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid')) or organization.recid in (select organization.recid from organization where organization.parent_organization in (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid'))))",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from payment_export where '@activeRecord.status = 1",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			
+			{
+				"name": "charge_export_own_organization_and_child",
+				"label": "Чтение экспорта платежей только своей и дочерних организаций",
+				"objects": [
+					"charge_export"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select charge_export.* from charge_export join rdev___auth_users as au on au.recid::text = charge_export.reccreatedby join users as u on u.login = au.login join organization as o on o.recid = u.organizationid where o.recid in (select organization.recid from organization where organization.recid in (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid')) or organization.recid in (select organization.recid from organization where organization.parent_organization in (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid' limit 1))))",
+						"accessLevel": "read"
+					},
+					{
+						"sqlQuery": "select * from charge_export where '@activeRecord.status = 1",
+						"accessLevel": "delete"
+					}
+				]
+			},
+			{
+				"name": "income_own_organization_and_child",
+				"label": "Чтение зачислений только своей и дочерних организаций",
+				"objects": [
+					"income"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select income.* from income where (payee_inn, payee_kpp) in (select inn, kpp from organization where recid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))) or (select parent_organization from organization where organization.inn = payee_inn and organization.kpp = payee_kpp) = (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid'))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "income_own_organization",
+				"label": "Чтение зачислений только своей организации",
+				"objects": [
+					"income"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select income.* from income where (payee_inn, payee_kpp) in (select inn, kpp from organization where recid in (select organizationid from users where login in (select login from rdev___auth_users where recid = '@activeUser.recid')))",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "income_request_own",
+				"label": "Чтение только своtего экспорта зачислений",
+				"objects": [
+					"income_request"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from income_request where reccreatedby = '@activeUser.recid'",
+						"accessLevel": "read"
+					}
+				]
+			},
+			{
+				"name": "income_request_own_organization_and_child",
+				"label": "Чтение экспорта зачислений только своей и дочерних организаций",
+				"objects": [
+					"income_request"
+				],
+				"objectType": "table",
+				"parentTableName": null,
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select income_request.* from income_request join rdev___auth_users as au on au.recid::text = income_request.reccreatedby join users as u on u.login = au.login join organization as o on o.recid = u.organizationid where o.recid in (select organization.recid from organization where organization.recid = (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid')) or organization.recid in (select organization.recid from organization where organization.parent_organization in (select organizationid from users where login = (select login from rdev___auth_users where recid = '@activeUser.recid'))))",
+						"accessLevel": "read"
+					}
+				]
+			}	
+		]
+	},
+	"menus": [
+		{
+			"name": "mainMenu",
+			"title": "Главное меню",
+			"hint": "Главное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "chargeMenuItem",
+					"title": "Реестр начислений",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "chargeInworkMenuItem",
+							"title": "В работе",
+							"typeMenuItem": "Table",
+							"object": "charge",
+							"filter": {
+								"name": "inwork_filter",
+								"expression": "[['acknowledgment_status','=',6],'or',['acknowledgment_status','=',10],'or',['acknowledgment_status','=',11],'or',['acknowledgment_status','=',12],'or',['acknowledgment_status','=',13],'or',['acknowledgment_status','=',14],'or',['acknowledgment_status','=',15],'or',['acknowledgment_status','=',16],'or',['acknowledgment_status','=', 7]]"
+							}
+						},
+						{
+							"name": "chargeImportedMenuItem",
+							"title": "Импортированные",
+							"typeMenuItem": "Table",
+							"object": "charge",
+							"filter": {
+								"name": "imported_filter",
+								"expression": "[['acknowledgment_status','=',1],'or',['acknowledgment_status','=',2],'or',['acknowledgment_status','=',3],'or',['acknowledgment_status','=',4],'or',['acknowledgment_status','=',5]]"
+							}
+						},
+						{
+							"name": "chargeErrorMenuItem",
+							"title": "Ошибочные",
+							"typeMenuItem": "Table",
+							"object": "charge",
+							"filter": {
+								"name": "error_filter",
+								"expression": "[['acknowledgment_status','=', 9], 'or', ['acknowledgment_status','=', 91], 'or', ['acknowledgment_status','=', 92], 'or', ['acknowledgment_status','=', 93], 'or', ['acknowledgment_status','=', 94], 'or', ['acknowledgment_status','=', 95]]"
+							}
+						},
+						{
+							"name": "chargeAnnulMenuItem",
+							"title": "Аннулированные",
+							"typeMenuItem": "Table",
+							"object": "charge",
+							"filter": {
+								"name": "annul_filter",
+								"expression": "['acknowledgment_status','=', 8]"
+							}
+						},
+						{
+							"name": "templateMenuItem",
+							"title": "Шаблоны начислений",
+							"typeMenuItem": "Table",
+							"object": "charge_data_template"
+						},
+						{
+							"name": "chargeimportMenuItem",
+							"title": "Массовый импорт",
+							"typeMenuItem": "Table",
+							"object": "charge_import"
+						},
+						{
+							"name": "chargeimportTemplateMenuItem",
+							"title": "Шаблоны массового импорта",
+							"typeMenuItem": "Table",
+							"object": "charge_import_template"
+						},
+						{
+							"name": "chargeimportTemplateMenuItem",
+							"title": "Экспорт из ГИС ГМП",
+							"typeMenuItem": "Table",
+							"object": "charge_export"
+						}
+					]
+				},
+				{
+					"name": "paymentMenuItem",
+					"title": "Реестр платежей",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "paymentreestrMenuItem",
+							"title": "Реестр платежей",
+							"typeMenuItem": "Table",
+							"object": "payment"
+						},
+						{
+							"name": "exportpaymentMenuItem",
+							"title": "Экспорт из ГИС ГМП",
+							"typeMenuItem": "Table",
+							"object": "payment_export"
+						}
+					]
+				},
+				{
+					"name": "refundMenuItem",
+					"title": "Реестр возвратов",
+					"typeMenuItem": "Table",
+					"object": "refund"
+				},
+				{
+					"name":"incomeMenuGroup",
+					"title":"Реестр зачислений",
+					"typeMenuItem":"Submenu",
+					"submenuItems":[
+						{
+							"name":"incomeMenuItem",
+							"title":"Реестр зачислений",
+							"typeMenuItem":"Table",
+							"object":"income"
+						},
+						{
+							"name":"incomeExportMenuItem",
+							"title":"Экспорт из ГИС ГМП",
+							"typeMenuItem":"Table",
+							"object":"income_request"
+						}
+					]
+				},
+				{
+					"name": "reportsMenuItem",
+					"title": "Отчеты",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "report_charge_group_by_kbk",
+							"title": "Реестр начислений",
+							"typeMenuItem": "Report",
+							"object": "charge_group_by_kbk"
+						},
+						{
+							"name": "report_org_charge_count",
+							"title": "Статистика по участникам и количеству начислений",
+							"typeMenuItem": "Report",
+							"object": "org_charge_count"
+						},
+						{
+							"name": "report_org_charge_count_full",
+							"title": "Детализированная статистика по участникам и количеству начислений",
+							"typeMenuItem": "Report",
+							"object": "org_charge_count_full"
+						},
+						{
+							"name": "report_charge",
+							"title": "Данные начислений",
+							"typeMenuItem": "Report",
+							"object": "charge"
+						}
+					]
+				},
+				{
+					"name": "settingsMenuItem",
+					"title": "Настройки",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "usersMenuItem",
+							"title": "Пользователи",
+							"typeMenuItem": "Table",
+							"object": "users"
+						},
+						{
+							"name": "organizationMenuItem",
+							"title": "Организации",
+							"typeMenuItem": "Table",
+							"object": "organization",
+							"filter": {
+								"name": "interface",
+								"expression": "['generate_by_api', '<>', true]"
+							}
+						},
+						{
+							"name": "organizationMenuGenerateByApiItem",
+							"title": "Внешние организации",
+							"typeMenuItem": "Table",
+							"object": "organization",
+							"filter": {
+								"name": "api",
+								"expression": "['generate_by_api', '=', true]"
+							}
+						},
+						{
+							"name": "payerMenuItem",
+							"title": "Плательщики",
+							"typeMenuItem": "Table",
+							"object": "payer",
+							"filter": {
+								"name": "newFilter",
+								"expression": "['is_dic', '=', true]"
+							}
+						}
+					]
+				},
+				{
+					"name": "dictsMenuItem",
+					"title": "Справочники",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "doctypeMenuItem",
+							"title": "Коды типов документов",
+							"typeMenuItem": "Table",
+							"object": "doc_type"
+						},
+						{
+							"name": "oksmMenuItem",
+							"title": "Коды ОКСМ",
+							"typeMenuItem": "Table",
+							"object": "oksm"
+						},
+						{
+							"name": "senderroleMenuItem",
+							"title": "Роль ГИС ГМП",
+							"typeMenuItem": "Table",
+							"object": "sender_role"
+						},
+						{
+							"name": "payerstatusMenuItem",
+							"title": "Статус плательщика",
+							"typeMenuItem": "Table",
+							"object": "payer_status"
+						},
+						{
+							"name": "paytreasonMenuItem",
+							"title": "Основания платежа",
+							"typeMenuItem": "Table",
+							"object": "payt_reason"
+						}
+					]
+				},
+				{
+					"name": "responses_log_menu",
+					"title": "Список ошибок (Логи)",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "responsesLog",
+							"title": "ФЗ обработки ответов СМЭВ",
+							"typeMenuItem": "Table",
+							"object": "responses_log"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "update_payer_menu",
+			"title": "Редактировать",
+			"hint": "Редактировать",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "update_payer",
+					"title": "Редактировать",
+					"typeMenuItem": "Form",
+					"object": "77c85115-5389-4e23-a385-39796500d7ea"
+				}
+			]
+		},
+		{
+			"name": "update_charge_template_menu",
+			"title": "Редактировать",
+			"hint": "Редактировать",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "update_charge_template",
+					"title": "Редактировать",
+					"typeMenuItem": "Form",
+					"object": "55429186-3534-46d1-b55d-5362198e06e0"
+				}
+			]
+		},
+		{
+			"name": "refund_menu",
+			"title": "Контекстное возвратов",
+			"hint": "Контекстное возвратов",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "actionItem_refund_edit",
+					"title": "Редактировать возврат",
+					"typeMenuItem": "Form",
+					"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+				},
+				{
+					"name": "actionItem_refund_view",
+					"title": "Информация о возврате",
+					"typeMenuItem": "Form",
+					"object": "dfb73089-16f2-4782-a2f7-749128d82653"
+				},
+				{
+					"name": "actionItem_refund_send",
+					"title": "Отправить",
+					"typeMenuItem": "Method",
+					"object": "refund_send"
+				},
+				{
+					"name": "actionItem_refund_annul",
+					"title": "Аннулировать",
+					"typeMenuItem": "Form",
+					"object": "e358b39c-51b0-4b68-a89e-86b6fb5d7b6f"
+				},
+				{
+					"name": "actionItem_refund_deannul",
+					"title": "Деаннулировать",
+					"typeMenuItem": "Form",
+					"object": "47044064-c1ad-432f-8ea3-6681fb70615b"
+				}
+			]
+		},
+		{
+			"name": "users_menu",
+			"title": "Контекстное пользователей",
+			"hint": "Контекстное пользователей",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "actionItem_user_delete",
+					"title": "Удалить пользователя",
+					"typeMenuItem": "Method",
+					"object": "users_delete"
+				},
+				{
+					"name": "actionItem_user_edit",
+					"title": "Редактировать пользователя",
+					"typeMenuItem": "Form",
+					"object": "33cd93e6-93ff-407e-b2bb-7094a4023b35"
+				}
+			]
+		},
+		{
+			"name": "get_payment_menu",
+			"title": "Информация о платеже",
+			"hint": "Информация о платеже",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "actionItem_refund",
+					"title": "Оформить возврат",
+					"typeMenuItem": "Form",
+					"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+				},
+				{
+					"name": "get_payment",
+					"title": "Информация о платеже",
+					"typeMenuItem": "Form",
+					"object": "0bc5042d-a68e-496e-909a-00ec9a2c0c1f"
+				},
+				{
+					"name": "actionItem_payment_actualize",
+					"title": "Уточнить данные",
+					"typeMenuItem": "Method",
+					"object": "payment_actualize"
+				}
+			]
+		},
+		{
+			"name": "update_payment_export_menu",
+			"title": "Редактировать",
+			"hint": "Редактировать",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "update_payment_export_template",
+					"title": "Редактировать",
+					"typeMenuItem": "Form",
+					"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180"
+				}
+			]
+		}
+	],
+	"types": [
+		{
+			"name": "payment_conditions_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": "1",
+					"value": "За период"
+				},
+				{
+					"id": "2",
+					"value": "По плательщику"
+				},
+				{
+					"id": "3",
+					"value": "По уникальному идентификатору плательщика (УИП)"
+				}
+			]
+		},
+		{
+			"name": "payment_status_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": "1",
+					"value": "Черновик"
+				},
+				{
+					"id": "2",
+					"value": "Отправлено"
+				},
+				{
+					"id": "3",
+					"value": "Ответ получен"
+				},
+				{
+					"id": "4",
+					"value": "Ошибка"
+				}
+			]
+		},
+		{
+			"name": "refund_status_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": "1",
+					"value": "Черновик"
+				},
+				{
+					"id": "2",
+					"value": "Импортировано"
+				},
+				{
+					"id": "3",
+					"value": "Аннулировано"
+				},
+				{
+					"id": "4",
+					"value": "Ошибка"
+				},
+				{
+					"id": "5",
+					"value": "Создание возврата"
+				},
+				{
+					"id": "6",
+					"value": "Аннулирование возврата"
+				},
+				{
+					"id": "7",
+					"value": "Деаннулирование возврата"
+				}
+			]
+		},
+		{
+			"name": "transkind_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": "01",
+					"value": "Платежное поручение"
+				},
+				{
+					"id": "06",
+					"value": "Инкассовое поручение"
+				},
+				{
+					"id": "16",
+					"value": "Платежный ордер"
+				}
+			]
+		},
+		{
+			"name": "meaning_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Новое"
+				},
+				{
+					"id": 2,
+					"value": "Уточнение"
+				},
+				{
+					"id": 3,
+					"value": "Уточнение об аннулировании"
+				},
+				{
+					"id": 4,
+					"value": "Уточнение о деаннулировании"
+				}
+			]
+		},
+		{
+			"name": "doctype_title_relation",
+			"type": "SysRelation",
+			"displayName": "Документ",
+			"relation": {
+				"table": "doc_type",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "oksm_title_relation",
+			"type": "SysRelation",
+			"displayName": "Страна",
+			"relation": {
+				"table": "oksm",
+				"displayField": "recdescription"
+			}
+		},
+		{
+			"name": "id_responses_relation",
+			"type": "SysRelation",
+			"displayName": "Идентификатор ответа",
+			"relation": {
+				"table": "rsmev___responses",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "quittance_files",
+			"type": "SysFile",
+			"displayName": "Файл квитанции",
+			"allowMultiple": true,
+			"allowSign": false,
+			"allowAdd": false,
+			"allowDelete": false,
+			"fileMask": "*.*"
+		},
+		{
+			"name": "senderrole_title_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "sender_role",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "organization_name_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "organization",
+				"displayField": "name"
+			}
+		},
+		{
+			"name": "payerstatus_title_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "payer_status",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "paytreason_title_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "payt_reason",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "payer_payername_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "payer",
+				"displayField": "name"
+			}
+		},
+		{
+			"name": "charge_data_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "charge_data",
+				"displayField": "tax_docnumber"
+			}
+		},
+		{
+			"name": "sysfile_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "rdev___sysfiles",
+				"displayField": "recname"
+			}
+		},
+		{
+			"name": "template_name_relation",
+			"type": "SysRelation",
+			"relation": {
+				"table": "charge_data_template",
+				"displayField": "name"
+			}
+		},
+		{
+			"name": "discount_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Со скидкой (процент)"
+				},
+				{
+					"id": 2,
+					"value": "С фиксированной суммой скидки"
+				},
+				{
+					"id": 3,
+					"value": "С применением понижающего коэффициента"
+				}
+			]
+		},
+		{
+			"name": "payer_filling_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Выбор из справочника"
+				},
+				{
+					"id": 2,
+					"value": "Ручной ввод"
+				}
+			]
+		},
+		{
+			"name": "charge_data_filling_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Шаблон начисления"
+				},
+				{
+					"id": 2,
+					"value": "Ручной ввод"
+				}
+			]
+		},
+		{
+			"name": "payer_type_enum",
+			"type": "SysENUM",
+			"displayName": "Тип плательщика",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Физическое лицо"
+				},
+				{
+					"id": 2,
+					"value": "Юридическое лицо (резидент РФ)"
+				},
+				{
+					"id": 3,
+					"value": "Юридическое лицо (не резидент РФ)"
+				},
+				{
+					"id": 4,
+					"value": "Индивидуальный предприниматель"
+				}
+			]
+		},
+		{
+			"name": "acknowledgment_status_enum",
+			"type": "SysENUM",
+			"displayName": "Статус начисления",
+			"enum": [
+				{
+					"id": 6,
+					"value": "Черновик"
+				},
+				{
+					"id": 7,
+					"value": "Уточняемое"
+				},
+				{
+					"id": 1,
+					"value": "Сквитировано"
+				},
+				{
+					"id": 2,
+					"value": "Предварительно сквитировано"
+				},
+				{
+					"id": 3,
+					"value": "Не сквитировано"
+				},
+				{
+					"id": 4,
+					"value": "Сквитировано с отсутствующим платежом"
+				},
+				{
+					"id": 5,
+					"value": "Принудительно сквитировано"
+				},
+				{
+					"id": 8,
+					"value": "Аннулировано"
+				},
+				{
+					"id": 9,
+					"value": "Ошибка"
+				},
+				{
+					"id": 91,
+					"value": "Ошибка создания"
+				},
+				{
+					"id": 92,
+					"value": "Ошибка уточнения"
+				},
+				{
+					"id": 93,
+					"value": "Ошибка анулирования"
+				},
+				{
+					"id": 94,
+					"value": "Ошибка деанулирования"
+				},
+				{
+					"id": 95,
+					"value": "Ошибка квитирования"
+				},
+				{
+					"id": 10,
+					"value": "Отправлено"
+				},
+				{
+					"id": 11,
+					"value": "Создание начисления"
+				},
+				{
+					"id": 12,
+					"value": "Уточнение начисления"
+				},
+				{
+					"id": 13,
+					"value": "Аннулирование начисления"
+				},
+				{
+					"id": 14,
+					"value": "Деаннулирование начисления"
+				},
+				{
+					"id": 15,
+					"value": "Квитирование"
+				},
+				{
+					"id": 16,
+					"value": "Отмена квитирования"
+				}
+			]
+		},
+		{
+			"name": "actualize_status_enum",
+			"type": "SysENUM",
+			"displayName": "Статус актуализации начисления",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Актуализация статуса"
+				},
+				{
+					"id": 2,
+					"value": "Ответ получен"
+				}
+			]
+		},
+		{
+			"name": "reqtype_type_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": "1",
+					"value": "Все активные платежи"
+				},
+				{
+					"id": "2",
+					"value": "Все платежи, имеющие статус уточнения или аннулирования"
+				},
+				{
+					"id": "3",
+					"value": "Все активные платежи, для которых отсутствуют начисления"
+				},
+				{
+					"id": "4",
+					"value": "Аннулированные платежи"
+				}
+			]
+		},
+		{
+			"name": "payer_relation",
+			"type": "SysRelation",
+			"displayName": "Связь с плательщиками",
+			"relation": {
+				"table": "payer",
+				"displayField": "recid"
+			}
+		},
+		{
+			"name": "payer_name",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Наименование плательщика",
+			"formula": "select case when payer.payer_type in (2,3) then payer.orgname when payer.payer_type in (1,4) then payer.lastname||' '||payer.name||' '||payer.middlename end from payer where charge.payer = payer.recid"
+		},
+		{
+			"name": "user_fio",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "ФИО",
+			"formula": "select COALESCE(lastname,'')||' '||COALESCE(firstname,'')||' '||COALESCE(patronymic,'') from rdev___auth_users where users.login = rdev___auth_users.login"
+		},
+		{
+			"name": "user_role",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Роль",
+			"formula": "select recdescription from rdev___auth_groups where recid in (select groupid from rdev___auth_groupuser where userid in (select recid from rdev___auth_users where rdev___auth_users.login = users.login))"
+		},
+		{
+			"name": "payer_doc_ser_num",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Номер документа плательщика",
+			"formula": "select case when payer.payer_type in (2,3,4) then payer.inn when payer.payer_type in (1) then payer.doc_ser_num end from payer where charge.payer = payer.recid"
+		},
+		{
+			"name": "payt_reason_calc",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Основание платежа",
+			"formula": "select payt_reason.recname from payt_reason where payt_reason.recid in (select charge_data.payt_reason from charge_data where charge.charge_data = charge_data.recid)"
+		},
+		{
+			"name": "kbk_calc",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Основание платежа",
+			"formula": "select charge_data.kbk from charge_data where charge.charge_data = charge_data.recid"
+		},
+		{
+			"name": "parent_organization_name_relation",
+			"type": "SysRelation",
+			"displayName": "",
+			"relation": {
+				"table": "organization",
+				"displayField": "name"
+			}
+		},
+		{
+			"name": "payment_organization_name_by_sender_identifier",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Наименование организации",
+			"formula": "select organization.name from organization where organization.generate_by_api is distinct from true and organization.sender_identifier = payment.recipientidentifier limit 1"
+		},
+		{
+			"name": "charge_amounttopay_calc_format",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Остаток, руб. (Формат с 2 знаками после запятой)",
+			"formula": "select to_char(amounttopay, 'FM999G999G999G999G999G999G990D00') from charge as tmp_charge where tmp_charge.recid = charge.recid"
+		},
+		{
+			"name": "charge_totalamount_calc_format",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Сумма, руб. (Формат с 2 знаками после запятой)",
+			"formula": "select to_char(totalamount, 'FM999G999G999G999G999G999G990D00') from charge as tmp_charge where tmp_charge.recid = charge.recid"
+		},
+		{
+			"name": "senderrole_codes_relation",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "",
+			"formula": "select string_agg(reccode, ', ') from sender_role where sender_role.recid in (select organization_roles.sender_role from organization_roles where organizationid=organization.recid)"
+		},
+		// https://rm.mfc.ru/issues/57998
+		{
+			"name": "charge_export_request_type",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Все неоплаченные начисления"
+				},
+				{
+					"id": 2,
+					"value": "Начисления, не полностью сквитированные с платежами"
+				},
+				{
+					"id": 3,
+					"value": "Начисления и статусы их квитирования"
+				},
+				{
+					"id": 4,
+					"value": "Неоплаченные предварительные начисления"
+				},
+				{
+					"id": 5,
+					"value": "Предварительные начисления, не полностью сквитированные с платежами"
+				},
+				{
+					"id": 6,
+					"value": "Предварительные начисления и статусы их квитирования"
+				},
+				{
+					"id": 7,
+					"value": "Неоплаченные предварительные начисление, сформированные ГИС ГМП"
+				},
+				{
+					"id": 8,
+					"value": "Предварительные начисления, сформированные ГИС ГМП, не полностью сквитированные с платежами"
+				},
+				{
+					"id": 9,
+					"value": "Предварительные начисления, сформированные ГИС ГМП, и статусы их квитирования"
+				}
+			]
+		},
+		{
+			"name":"income_request_condition_enum",
+			"type":"SysENUM",
+			"enum":[
+				{
+					"id":1,
+					"value":"По уникальному идентификатору начисления (УИН)"
+				},
+				{
+					"id":2,
+					"value":"По идентификатору плательщика"
+				},
+				{
+					"id":3,
+					"value":"По уникальному присваиваемому номеру операции (УПНО (УИП))"
+				},
+				{
+					"id":4,
+					"value":"За период"
+				},
+				{
+					"id":5,
+					"value":"По уникальному идентификатору зачисления (УИЗ)"
+				}
+			]
+		},
+		{
+			"name": "income_status_enum",
+			"type": "SysENUM",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Черновик"
+				},
+				{
+					"id": 2,
+					"value": "Запрос отправлен"
+				},
+				{
+					"id": 3,
+					"value": "Ответ получен"
+				},
+				{
+					"id": 4,
+					"value": "Ошибка"
+				}
+			]
+		},
+		{
+			"name": "income_request_files",
+			"type": "SysFile",
+			"displayName": "Файл ответа",
+			"allowMultiple": true,
+			"allowSign": false,
+			"allowDelete": false,
+			"allowAdd": false,
+			"visibleSignText": false,
+			"allowDownloadZip": true
+		},
+		{
+			"name":"income_request_recid",
+			"type": "SysRelation",
+			"displayName": "",
+			"relation": {
+				"table": "income_request",
+				"displayField": "recname"
+			}
+		}
+	],
+	"tables": [
+		// https://rm.mfc.ru/issues/57998
+		{
+			"name": "charge_export",
+			"displayName": "Экспорт из ГИС ГМП",
+			"description": "Экспорт начислений из ГИС ГМП ФК по запросу пользователей",
+			"AllowDelete": true,
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Условия запроса"
+				},
+				{
+					"name": "request_type",
+					"type": "charge_export_request_type",
+					"displayName": "Тип запроса"
+				},
+				{
+					"name": "condition",
+					"type": "payment_conditions_enum",
+					"displayName": "Условие запроса"
+				},
+				{
+					"name": "status_request",
+					"type": "payment_status_enum",
+					"displayName": "Статус"
+				},
+				{
+					"name": "data",
+					"type": "SysFile",
+					"displayName": "Данные"
+				},
+				{
+					"name": "start_date",
+					"type": "SysTimeDate",
+					"displayName": "С"
+				},
+				{
+					"name": "end_date",
+					"type": "SysTimeDate",
+					"displayName": "По"
+				},
+
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК"
+				},
+
+				// recipient addistions data
+				{
+					"name": "set_recipient_data",
+					"displayName": "Задать данные получателя средств",
+					"type": "SysBoolean"
+				},
+				{
+					"name": "recipients",
+					"type": "SysString",
+					"displayName": "Данные получателя средств"
+				},
+
+				// тип выбора платильщика
+				{
+					"name": "type_select_payer",
+					"type": "SysInt"
+				},
+				{
+					"name": "payer_type",
+					"type": "payer_type_enum"
+				},
+				{
+					"name": "payer_doc_type",
+					"type": "doctype_title_relation",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "payer_doc_serial",
+					"type": "SysString",
+					"displayName": "Серия и номер документа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "pattern",
+							"pattern": "[A-ZА-Я0-9]+",
+							"message": "Недопустимые символы"
+						}
+					]
+				},
+				{
+					"name": "payer_inn",
+					"type": "SysString",
+					"displayName": "ИНН",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{8}$",
+							"message": "Некорректное ИНН"
+						}
+					]
+				},
+				{
+					"name": "payer_kpp",
+					"type": "SysString",
+					"displayName": "КПП",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{2}[A-Z0-9]{2}\\d{3}$",
+							"message": "Некорректное КПП"
+						}
+					]
+				},
+				{
+					"name": "payer_kio",
+					"type": "SysString",
+					"displayName": "КИО",
+					"validationRules": [
+						{
+							"type": "stringLength",
+							"max": 5,
+							"message": "Слишком много символов"
+						}
+					]
+				},
+				{
+					"name": "payer_inn_disable",
+					"type": "SysBoolean"
+				},
+				{
+					"name": "payer_taxpayercode",
+					"type": "SysString",
+					"displayName": "Код налогоплательщика"
+				},
+				{
+					"name": "payer_countryreg",
+					"type": "oksm_title_relation",
+					"displayName": "Страна регистрации"
+				},
+				{
+					"name": "payer_identifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "payer_id",
+					"type": "payer_relation",
+					"displayName": "Плательщик"
+				},
+				{
+					"name": "payer_ul_inn",
+					"type": "SysString",
+					"displayName": "ИННы юридических лиц"
+				},
+
+				// по ЮИНам
+				{
+					"name": "uins",
+					"type": "SysString",
+					"displayName": "УИНы"
+				},
+
+				{
+					"name": "is_sbp",
+					"displayName": "Оплата через СБП",
+					"type": "SysBoolean"
+				},
+				
+				{
+					"name": "errorcode",
+					"type": "SysString",
+					"displayName": "Код ошибки"
+				},
+				{
+					"name": "errordescription",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"request_type",
+						"recname",
+						"status_request",
+						"data"
+					]
+				}
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"displayName": "Добавить",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737"
+					},
+					{
+						"name": "payment_View",
+						"displayName": "Просмотреть",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"icon": "search",
+						"visible": "return countOfSelectedRecords == 1 && && selectedRecords[0].status_request != 1;"
+					},
+					{
+						"name": "sysEdit",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+					},
+					{
+						"name": "charge_export_SendBtn2",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0&& selectedRecords[0].status_request == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_export_send"
+					},
+					{
+						"name": "sysDelete",
+						"actionType": "Method",
+						"object": "charge_export_del",
+						"color": "danger",
+						"displayName": "Удалить",
+						"icon": "remove",
+						"visible": "return countOfSelectedRecords == 1"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "charge_View2",
+						"displayName": "Просмотреть",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"icon": "search",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request != 1;"
+					},
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"actionType": "Form",
+						"icon": "edit",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"enabled": "return countOfSelectedRecords == 1;"
+					},
+					{
+						"name": "pressEnter",
+						"actionType": "Form",
+						"object": "67131e9b-b89a-4047-ad66-27bc84734737",
+						"enabled": "return countOfSelectedRecords == 1;"
+					},
+					{
+						"name": "charge_export_SendBtn",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0&& selectedRecords[0].status_request == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_export_send"
+					},
+					{
+						"name": "charge_history_btn",
+						"displayName": "История запросов",
+						"tooltip": "Просмотр истории запросов",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords[0].status_request != 1; }",
+						"icon": "history",
+						"enabled": true,
+						"actionType": "Form",
+						"object": "a788c84e-d962-4419-88e7-26d962989265"
+					},
+					{
+						"name": "onDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "on_delete",
+						"enabled": true,
+						"displayName": "Удалить",
+						"icon": "trash",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1",
+						"actionType": "Method",
+						"object": "delete_from_context"
+					}
+				]
+			},
+			"methods": [
+				{
+					"name": "charge_export_send",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "charge_export_del",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "delete_from_context",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			]
+		},
+		{
+			"name": "organization_roles",
+			"displayName": "Роли ГИС ГМП организации",
+			"description": "",
+			"fields": [
+				{
+					"name": "organizationid",
+					"type": "organization_name_relation",
+					"displayName": "Наименование организации",
+					"visible": false
+				},
+				{
+					"name": "sender_role",
+					"type": "senderrole_title_relation",
+					"displayName": "Роль ГИС ГМП",
+					"validationRules": [
+						{
+							"type": "required"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "charge_import_template",
+			"displayName": "Шаблоны массового импорта",
+			"description": "",
+			"fields": [
+				{
+					"name": "file",
+					"type": "SysFile",
+					"displayName": "Файл шаблона"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"file"
+					]
+				}
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "charge_import",
+			"displayName": "Массовый импорт начислений",
+			"description": "Массовый импорт начислений",
+			"fields": [
+				{
+					"name": "date",
+					"type": "SysTimeDate",
+					"displayName": "Дата запроса"
+				},
+				{
+					"name": "amount",
+					"type": "SysInt",
+					"displayName": "Количество начислений"
+				},
+				{
+					"name": "result",
+					"type": "SysString",
+					"displayName": "Результат импорта"
+				},
+				{
+					"name": "file_file",
+					"type": "SysFile",
+					"displayName": "Данные для импорта"
+				},
+				{
+					"name": "status",
+					"type": "SysInt",
+					"displayName": "Статус записи импорта"
+				},
+				{
+					"name": "organization",
+					"type": "SysGUID",
+					"displayName": "Организация под которой происходит импорт"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"date",
+						"amount",
+						"result",
+						"file_file"
+					]
+				}
+			},
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"displayName": "Добавить",
+						"visible": true,
+						"enabled": true,
+						"actionType": "Form",
+						"object": "06bc2631-f8db-44a2-a7a5-313db49ac34d"
+					},
+					{
+						"name": "sysEdit",
+						"visible": false
+					},
+					{
+						"name": "sysDelete",
+						"visible": false
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"visible": false
+					},
+					{
+						"name": "dblClick",
+						"enabled": false
+					},
+					{
+						"name": "pressEnter",
+						"enabled": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false
+					},
+					{
+						"name": "onDelete",
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "payment_export",
+			"displayName": "Экспорт из ГИС ГМП",
+			"description": "",
+			"AllowDelete": true,
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Условия запроса"
+				},
+				{
+					"name": "request_type",
+					"type": "reqtype_type_enum",
+					"displayName": "Тип запроса"
+				},
+				{
+					"name": "condition",
+					"type": "payment_conditions_enum",
+					"displayName": "Условие запроса"
+				},
+				{
+					"name": "type_select_payer",
+					"type": "SysInt"
+				},
+				{
+					"name": "status_request",
+					"type": "payment_status_enum",
+					"displayName": "Статус"
+				},
+				{
+					"name": "data",
+					"type": "SysFile",
+					"displayName": "Данные"
+				},
+				{
+					"name": "start_date",
+					"type": "SysTimeDate",
+					"displayName": "Начальная дата"
+				},
+				{
+					"name": "end_date",
+					"type": "SysTimeDate",
+					"displayName": "Конечная дата"
+				},
+				{
+					"name": "payeridentifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "paymentid",
+					"type": "SysString",
+					"displayName": "УИП"
+				},
+				{
+					"name": "payerid",
+					"type": "payer_relation",
+					"displayName": "Плательщик"
+				},
+				// https://rm.mfc.ru/issues/58000
+				{
+					"name": "payer_type",
+					"type": "payer_type_enum"
+				},
+				{
+					"name": "doc_type",
+					"type": "doctype_title_relation",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "doc_serial",
+					"type": "SysString",
+					"displayName": "Серия и номер документа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "pattern",
+							"pattern": "[A-ZА-Я0-9]+",
+							"message": "Недопустимые символы"
+						}
+					]
+				},
+				{
+					"name": "inn",
+					"type": "SysString",
+					"displayName": "ИНН",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{8}$",
+							"message": "Некорректное ИНН"
+						}
+					]
+				},
+				{
+					"name": "kpp",
+					"type": "SysString",
+					"displayName": "КПП",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{2}[A-Z0-9]{2}\\d{3}$",
+							"message": "Некорректное КПП"
+						}
+					]
+				},
+				{
+					"name": "kio",
+					"type": "SysString",
+					"displayName": "КИО",
+					"validationRules": [
+						{
+							"type": "stringLength",
+							"max": 5,
+							"message": "Слишком много символов"
+						}
+					]
+				},
+				{
+					"name": "inn_disable",
+					"type": "SysBoolean"
+				},
+				{
+					"name": "taxpayercode",
+					"type": "SysString",
+					"displayName": "Код налогоплательщика"
+				},
+				{
+					"name": "countryreg",
+					"type": "oksm_title_relation",
+					"displayName": "Страна регистрации"
+				},
+				// **********************************
+				{
+					"name": "errorcode",
+					"type": "SysString",
+					"displayName": "Код ошибки"
+				},
+				{
+					"name": "errordescription",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"request_type",
+						"recname",
+						"status_request",
+						"data"
+					]
+				}
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"displayName": "Добавить",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180"
+					},
+					{
+						"name": "payment_View",
+						"displayName": "Просмотреть",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"icon": "search",
+						"visible": "return countOfSelectedRecords == 1 && && selectedRecords[0].status_request != 1;"
+					},
+					{
+						"name": "sysEdit",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+					},
+					{
+						"name": "payment_export_SendBtn2",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0&& selectedRecords[0].status_request == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "payment_export_send"
+					},
+					{
+						"name": "sysDelete",
+						"actionType": "Method",
+						"object": "payment_export_del",
+						"color": "danger",
+						"displayName": "Удалить",
+						"icon": "remove",
+						"visible": "return countOfSelectedRecords == 1"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "payment_View2",
+						"displayName": "Просмотреть",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"icon": "search",
+						"params": [
+							{
+								"view": true
+							}
+						],
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request != 1;"
+					},
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"actionType": "Form",
+						"icon": "edit",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1;"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"enabled": "return countOfSelectedRecords == 1;"
+					},
+					{
+						"name": "pressEnter",
+						"actionType": "Form",
+						"object": "836cf643-3b67-4b1f-bcdc-7c0d004b9180",
+						"enabled": "return countOfSelectedRecords == 1;"
+					},
+					{
+						"name": "payment_export_SendBtn",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0&& selectedRecords[0].status_request == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "payment_export_send"
+					},
+					{
+						"name": "payment_history_btn",
+						"displayName": "История запросов",
+						"tooltip": "Просмотр истории запросов",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords[0].status_request != 1; }",
+						"icon": "history",
+						"enabled": true,
+						"actionType": "Form",
+						"object": "a788c84e-d962-4419-88e7-26d962989265"
+					},
+					{
+						"name": "onDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "on_delete",
+						"enabled": true,
+						"displayName": "Удалить",
+						"icon": "trash",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].status_request == 1",
+						"actionType": "Method",
+						"object": "delete_from_context"
+					}
+					
+				]
+			},
+			"methods": [
+				{
+					"name": "payment_export_send",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "payment_export_del",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "delete_from_context",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			]
+		},
+		{
+			"name": "charge",
+			"displayName": "Начисления",
+			"description": "Данные начисления",
+			"historyEnabled": true,
+			"fields": [
+				{
+					"name": "payee",
+					"type": "organization_name_relation",
+					"displayName": "Данные организации, являющейся получателем средств"
+				},
+				{
+					"name": "quittance_file",
+					"type": "quittance_files",
+					"displayName": "Квитанция"
+				},
+				{
+					"name": "supplier_bill_id",
+					"type": "SysString",
+					"displayName": "УИН",
+					"readOnly": true
+				},
+				{
+					"name": "istemplate",
+					"type": "SysBoolean",
+					"displayName": "Заполнено по шаблону",
+					"readOnly": true
+				},
+				{
+					"name": "acknowledgment_status",
+					"type": "acknowledgment_status_enum",
+					"readOnly": true
+				},
+				{
+					"name": "bill_date",
+					"type": "SysDate",
+					"displayName": "Дата начисления",
+					"validationRules": [
+						{
+							"type": "required"
+						}
+					]
+				},
+				{
+					"name": "amounttopay",
+					"type": "SysMoney",
+					"displayName": "Остаток, руб."
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа"
+				},
+				{
+					"name": "totalamount",
+					"type": "SysMoney",
+					"displayName": "Сумма, руб."
+				},
+				//
+				// ***** ОШИБКА ***** //
+				//
+				{
+					"name": "ErrorCode",
+					"type": "SysString",
+					"displayName": "Код ошибки"
+				},
+				{
+					"name": "ErrorDescription",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				},
+				//
+				// ***** РЕКВИЗИТЫ ПЛАТЕЛЬЩИКА ***** //
+				//
+				// правило валидации required?
+				{
+					"name": "clarify_changes",
+					"type": "SysString",
+					"displayName": "Изменения при уточнении"
+				},
+				{
+					"name": "payer_filling_type",
+					"type": "payer_filling_type_enum",
+					"displayName": "Выберите тип заполнения реквизитов плательщика",
+					"readOnly": true
+				},
+				// правило валидации required?
+				{
+					"name": "payer",
+					"type": "payer_payername_relation",
+					"displayName": "Плательщик",
+					"readOnly": true
+				},
+				{
+					"name": "charge_data",
+					"type": "charge_data_relation",
+					"displayName": "Данные начисления",
+					"readOnly": true
+				},
+				{
+					"name": "charge_data_template",
+					"type": "template_name_relation",
+					"displayName": "Шаблон начисления"
+				},
+				{
+					"name": "valid_until",
+					"type": "SysDate",
+					"displayName": "Дата, до которой актуально начисление"
+				},
+				//
+				// ***** ДАННЫЕ НАЧИСЛЕНИЙ ***** //
+				//
+				{
+					"name": "discount",
+					"type": "SysBoolean",
+					"displayName": ""
+				},
+				{
+					"name": "discount_type",
+					"type": "discount_type_enum",
+					"displayName": "Условия"
+				},
+				{
+					"name": "discount_size_value",
+					"type": "SysInt",
+					"displayName": "Процент скидки"
+				},
+				{
+					"name": "discount_size_expiry",
+					"type": "SysDate",
+					"displayName": "Срок действия скидки"
+				},
+				// Правило валидации целое положительное число ([\-+]?[0-9]+) - поле заполняется вручную?
+				// Обязательно при DiscountType == DiscountFixed - как и где должно быть реализованно это условие?
+				{
+					"name": "discount_fixed_value",
+					"type": "SysInt",
+					"displayName": "Сумма скидки"
+				},
+				// формат ГГГГ-ММ-ДД - важен для отправки в гис гмп?
+				// можно настроить для поля date или придется использовать string? (учитывая что при отсутствии срока действия указывается значение «0».)
+				// Обязательно при DiscountType = DiscountFixed
+				{
+					"name": "discount_fixed_expiry",
+					"type": "SysDate",
+					"displayName": "Срок действия скидки"
+				},
+				{
+					"name": "multiplier_size_value",
+					"type": "SysDecimal",
+					"displayName": "Коэффициент"
+				},
+				{
+					"name": "multiplier_size_expiry",
+					"type": "SysDate",
+					"displayName": "Срок действия скидки"
+				},
+				{
+					"name": "payer_name_charge",
+					"type": "payer_name",
+					"displayName": "Плательщик"
+				},
+				{
+					"name": "package_id",
+					"type": "SysString",
+					"displayName": "Номер пакета в массовом импорте"
+				},
+				{
+					"name": "payer_doc_ser_num_charge",
+					"type": "payer_doc_ser_num",
+					"displayName": "Номер документа/ИНН"
+				},
+				{
+					"name": "payt_reason_charge",
+					"type": "payt_reason_calc",
+					"displayName": "Основание платежа"
+				},
+				{
+					"name": "kbk_charge",
+					"type": "kbk_calc",
+					"displayName": "КБК"
+				},
+				{
+					"name": "generate_by_api",
+					"type": "SysBoolean",
+					"displayName": "Сгенерированно через api"
+				},
+				{
+					"name": "actualize_status_request",
+					"type": "actualize_status_enum",
+					"readOnly": true
+				},
+				{
+					"name": "organization_name",
+					"type": "SysString",
+					"displayName": "Организация",
+					"readOnly": true
+				},
+				{
+					"name": "user_name",
+					"type": "SysString",
+					"displayName": "Пользователь",
+					"readOnly": true
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"supplier_bill_id",
+						"payer_name_charge",
+						"payer_doc_ser_num_charge",
+						"bill_date",
+						"totalamount",
+						"amounttopay",
+						"purpose",
+						"payt_reason_charge",
+						"kbk_charge",
+						"acknowledgment_status",
+						"quittance_file"
+					],
+					"unvisibleFields": ["actualize_status_request"]
+				},
+				"customGroups": [
+					{
+						"displayName": "Начисление",
+						"isEnabled": "function() { return activeRecord.supplier_bill_id != null && activeRecord.supplier_bill_id != ''; }",
+						"fields": [
+							"supplier_bill_id",
+							"acknowledgment_status",
+							"bill_date",
+							"totalamount",
+							"purpose"
+						]
+					},
+					{
+						"displayName": "Квитанция",
+						//"isEnabled": "function() { return activeRecord.quittance_file != null && activeRecord.quittance_file != ''; }",
+						"fields": [
+							"quittance_file"
+						]
+					},
+					{
+						"displayName": "Ошибка",
+						"isEnabled": "function() { return (activeRecord.errorcode != null && activeRecord.errordescription  != null); }",
+						"fields": [
+							"errorcode",
+							"errordescription"
+						]
+					} /*,
+					{
+						"displayName": "Реквизиты плательщика",
+						"isEnabled": "function() { return activeRecord.payer_filling_type == 1; }",
+						"fields": [
+							"payer_filling_type",
+							"payer"
+						]
+					},
+					{
+						"displayName": "Реквизиты плательщика",
+						"isEnabled": "function() { return activeRecord.payer_filling_type == 2; }",
+						"fields": [
+							"payer_filling_type",
+							"payer_type",
+							"payer_name",
+							"doc_type",
+							"doc_ser_num",
+							"address",
+							"inn",
+							"kpp",
+							"kio"
+						]
+					},
+					{
+						"displayName": "Данные начисления",
+						"isEnabled": "function() { return activeRecord.charge_data_filling_type == 1; }",
+						"fields": [
+							"charge_data_filling_type",
+							"charge_data_template"
+						]
+					},
+					{
+						"displayName": "Данные начисления",
+						"isEnabled": "function() { return activeRecord.charge_data_filling_type == 2; }",
+						"fields": [
+							"charge_data_filling_type",
+							"origin",
+							//	"purpose",
+							"total_amount",
+							"valid_until",
+							"kbk",
+							"oktmo",
+							"status",
+							"payt_reason",
+							"tax_doc_number",
+							"tax_doc_date",
+							"tax_period"
+						]
+					},
+					//{
+					//	"displayName": "Дополнительные условия оплаты",
+					//	"isEnabled": "function() { return activeRecord.discount_type == null; }",
+					//	"fields": [
+					//		"discount_type"
+					//	]
+					//},
+					{
+						"displayName": "Дополнительные условия оплаты",
+						"isEnabled": "function() { return activeRecord.discount_type == 1; }",
+						"fields": [
+							"discount_type",
+							"discount_size_value",
+							"discount_size_expiry"
+						]
+					},
+					{
+						"displayName": "Дополнительные условия оплаты",
+						"isEnabled": "function() { return activeRecord.discount_type == 2; }",
+						"fields": [
+							"discount_type",
+							"discount_fixed_value",
+							"discount_fixed_expiry"
+						]
+					},
+					{
+						"displayName": "Дополнительные условия оплаты",
+						"isEnabled": "function() { return activeRecord.discount_type == 3; }",
+						"fields": [
+							"discount_type",
+							"multiplier_size_value",
+							"multiplier_size_expiry"
+						]
+					}*/
+				]
+			},
+			"methods": [
+				{
+					"name": "reestr_delete",
+					"displayName": "Удалить пользователя",
+					"static": true,
+					"fields": [],
+					"isEnabled": "function() { return true;}"
+				},
+				{
+					"name": "charge_kvitirovat_cancel_submit",
+					"displayName": "отменить квитировать метод",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "charge_acknowledge",
+					"displayName": "квитировать начисление",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				//TG: При вызове: Ошибка ExecuteJs: charge_view is not defined
+				//{
+				//	"name": "charge_view",
+				//	"displayName": "просмотреть начисление",
+				//	"static": false,
+				//	"fields": [],
+				//	"isEnabled": "function() { return activeRecord.acknowledgment_status == 3 || activeRecord.acknowledgment_status == 4 || activeRecord.acknowledgment_status == 5 || activeRecord.acknowledgment_status == 6 || activeRecord.acknowledgment_status == 7 || activeRecord.acknowledgment_status == 8|| activeRecord.acknowledgment_status == 9; }"
+				//},
+				{
+					"name": "charge_clarify",
+					"displayName": "уточнить начисление",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "charge_clarify_send",
+					"displayName": "Отправить уточнение",
+					//"static": false,
+					"fields": [
+						{
+							"name": "reason",
+							"type": "SysString",
+							"displayName": "Причина уточнения"
+						}
+					],
+					"isEnabled": true,
+					"workflow": [
+						{
+							"name": "charge_clarify_send_server",
+							"methodSrc": "server"
+						}
+					]
+				},
+				{
+					"name": "charge_print",
+					"displayName": "распечатать квитанцию",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "charge_kvitirovat_no_payment",
+					"displayName": "Квитировать с отсутствующим платежом",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "charge_send",
+					"displayName": "Отправка запроса в СМЭВ 3",
+					"static": false,
+					"isEnabled": true,
+					"fields": []
+				},
+				{
+					"name": "charge_info_actualize_by_record",
+					"displayName": "Обновить статус квитирования",
+					"static": false,
+					"isEnabled": true,
+					"fields": []
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "sysDelete",
+						"displayName": "Удалить",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Method",
+						"object": "reestr_delete"
+					},
+					{
+						"name": "sysEdit",
+						"displayName": "Редактировать",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 6 || selectedRecords[0].acknowledgment_status == 7 || selectedRecords[0].acknowledgment_status == 9 || selectedRecords[0].acknowledgment_status == 91 || selectedRecords[0].acknowledgment_status == 92 || selectedRecords[0].acknowledgment_status == 93 || selectedRecords[0].acknowledgment_status == 94 || selectedRecords[0].acknowledgment_status == 95); }",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					},
+					{
+						"name": "viewChargeBtn",
+						"displayName": "Просмотреть",
+						"tooltip": "Информация о начислении",
+						"visible": "return countOfSelectedRecords == 1 && !(selectedRecords[0].acknowledgment_status == 6 || selectedRecords[0].acknowledgment_status == 7 || selectedRecords[0].acknowledgment_status == 9 || selectedRecords[0].acknowledgment_status == 91 || selectedRecords[0].acknowledgment_status == 92 || selectedRecords[0].acknowledgment_status == 93 || selectedRecords[0].acknowledgment_status == 94 || selectedRecords[0].acknowledgment_status == 95);",
+						"enabled": true,
+						"color": "light",
+						"icon": "search",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "chargeEditBtn",
+						"displayName": "Уточнить",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5); }",
+						"icon": "edit",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "chargeAnnulBtn",
+						"displayName": "Аннулировать",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5); }",
+						"icon": "remove",
+						"actionType": "Form",
+						"object": "18beb462-45e0-4ae1-82b7-dc29340474ef"
+					},
+					{
+						"name": "chargeDeannulBtn",
+						"displayName": "Деаннулировать",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 8 ; }",
+						"icon": "undo",
+						"actionType": "Form",
+						"object": "80ea1d37-2ade-49bb-b971-274a8085e2b7"
+					},
+					{
+						"name": "chargeSendBtn",
+						"displayName": "Отправить",
+						"tooltip": "Создать начисление",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords.every(function(item){return item.acknowledgment_status == 6;}) }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_send"
+					},
+					{
+						"name": "chargeClarifyBtn",
+						"displayName": "Отправить",
+						"tooltip": "Уточнить начисление",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords.every(function(item){return item.acknowledgment_status == 7;}) }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_clarify_send"
+					},
+					{
+						"name": "chargeKvitirovatBtn",
+						"displayName": "Квитировать",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 3 ; }",
+						"icon": "check",
+						"actionType": "Form",
+						"object": "43a99621-3501-4c4f-b168-c8f13afd2da0"
+					},
+					{
+						"name": "chargeKvitirovatNoPaymentBtn",
+						"displayName": "Квитировать с отсутствующим платежом",
+						"visible": "return countOfSelectedRecords > 1 && selectedRecords.every(function(item){return item.acknowledgment_status == 3;})",
+						"enabled": true,
+						"color": "light",
+						"icon": "check",
+						"actionType": "Method",
+						"object": "charge_kvitirovat_no_payment"
+					},
+					{
+						"name": "chargeKvitirovatBtnCancel",
+						"displayName": "Отменить квитирование",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 5; }",
+						"icon": "undo",
+						"actionType": "Form",
+						"object": "e6d19dc6-1004-45da-88ef-dcdf0a5d677f"
+					},
+					{
+						"name": "chargeKvitirovatBtnCancelMethod",
+						"displayName": "Отменить квитирование",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 4; }",
+						"icon": "undo",
+						"actionType": "Method",
+						"object": "charge_kvitirovat_cancel_submit"
+					},
+					{
+						"name": "chargePrintBtn",
+						"displayName": "Сформировать квитанцию",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5 || selectedRecords[0].acknowledgment_status == 10|| selectedRecords[0].acknowledgment_status == 11|| selectedRecords[0].acknowledgment_status == 12|| selectedRecords[0].acknowledgment_status == 13|| selectedRecords[0].acknowledgment_status == 14|| selectedRecords[0].acknowledgment_status == 15|| selectedRecords[0].acknowledgment_status == 16|| selectedRecords[0].acknowledgment_status == 6); }",
+						"icon": "file",
+						"actionType": "Method",
+						"object": "charge_print"
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "viewChargeMenu",
+						"displayName": "Просмотреть",
+						"visible": "return countOfSelectedRecords == 1 && !(selectedRecords[0].acknowledgment_status == 6 || selectedRecords[0].acknowledgment_status == 7 || selectedRecords[0].acknowledgment_status == 9 || selectedRecords[0].acknowledgment_status == 91 || selectedRecords[0].acknowledgment_status == 92 || selectedRecords[0].acknowledgment_status == 93 || selectedRecords[0].acknowledgment_status == 94 || selectedRecords[0].acknowledgment_status == 95);",
+						"icon": "search",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 6 || selectedRecords[0].acknowledgment_status == 7 || selectedRecords[0].acknowledgment_status == 9 || selectedRecords[0].acknowledgment_status == 91 || selectedRecords[0].acknowledgment_status == 92 || selectedRecords[0].acknowledgment_status == 93 || selectedRecords[0].acknowledgment_status == 94 || selectedRecords[0].acknowledgment_status == 95); }",
+						"icon": "pencil",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "dblClick",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": "return countOfSelectedRecords == 1 && !(selectedRecords[0].acknowledgment_status == 6 || selectedRecords[0].acknowledgment_status == 7 || selectedRecords[0].acknowledgment_status == 9 || selectedRecords[0].acknowledgment_status == 91 || selectedRecords[0].acknowledgment_status == 92 || selectedRecords[0].acknowledgment_status == 93 || selectedRecords[0].acknowledgment_status == 94 || selectedRecords[0].acknowledgment_status == 95);",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "onDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "chargeEditMenu",
+						"displayName": "Уточнить",
+						"visible": "return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5);",
+						"enabled": true,
+						"icon": "edit", //"bars",
+						"actionType": "Form",
+						"object": "8a2ee1a8-6c07-4b95-959e-82b5292dce3f"
+					},
+					{
+						"name": "chargeAnnulMenu",
+						"displayName": "Аннулировать",
+						"visible": "return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5);",
+						"enabled": true,
+						"icon": "remove",
+						"actionType": "Form",
+						"object": "18beb462-45e0-4ae1-82b7-dc29340474ef"
+					},
+					{
+						"name": "chargeDeannulMenu",
+						"displayName": "Деаннулировать",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 8;",
+						"enabled": true,
+						"icon": "undo",
+						"actionType": "Form",
+						"object": "80ea1d37-2ade-49bb-b971-274a8085e2b7"
+					},
+					{
+						"name": "chargeSendMenu",
+						"displayName": "Отправить",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords.every(function(item){return item.acknowledgment_status == 6;}) }",
+						"enabled": true,
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_send"
+					},
+					{
+						"name": "chargeClarifyMenu",
+						"displayName": "Отправить",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords.every(function(item){return item.acknowledgment_status == 7;}) }",
+						"enabled": true,
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "charge_clarify_send"
+					},
+					{
+						"name": "chargeKvitirovatMenu",
+						"displayName": "Квитировать",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 3;",
+						"enabled": true,
+						"icon": "check",
+						"actionType": "Form",
+						"object": "43a99621-3501-4c4f-b168-c8f13afd2da0"
+					},
+					{
+						"name": "chargeKvitirovatBtnCancelMenu",
+						"displayName": "Отменить квитирование",
+						"visible": "function() { return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status == 4; }",
+						"icon": "undo", //"angle-double-right",
+						"actionType": "Method",
+						"object": "charge_kvitirovat_cancel_submit"
+					},
+					{
+						"name": "chargePrintMenu",
+						"displayName": "Сформировать квитанцию",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 1 || selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3 || selectedRecords[0].acknowledgment_status == 4 || selectedRecords[0].acknowledgment_status == 5 || selectedRecords[0].acknowledgment_status == 10|| selectedRecords[0].acknowledgment_status == 11|| selectedRecords[0].acknowledgment_status == 12|| selectedRecords[0].acknowledgment_status == 13|| selectedRecords[0].acknowledgment_status == 14|| selectedRecords[0].acknowledgment_status == 15|| selectedRecords[0].acknowledgment_status == 16|| selectedRecords[0].acknowledgment_status == 6); }",
+						"enabled": true,
+						"icon": "file",
+						"actionType": "Method",
+						"object": "charge_print"
+					},
+					{
+						"name": "records_smev_history",
+						"displayName": "История запросов",
+						"enabled": true,
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].acknowledgment_status != 6;",
+						"icon": "history",
+						"actionType": "Form",
+						"object": "a788c84e-d962-4419-88e7-26d962989265"
+					},
+					{
+						"name": "chargeActualize",
+						"displayName": "Обновить статус квитирования",
+						"visible": "function() { return countOfSelectedRecords == 1 && (selectedRecords[0].acknowledgment_status == 2 || selectedRecords[0].acknowledgment_status == 3); }",
+						"enabled": "return countOfSelectedRecords == 1 && selectedRecords[0].actualize_status_request == 2",
+						"icon": "edit",
+						"actionType": "Method",
+						"object": "charge_info_actualize_by_record"
+					}
+				]
+			}
+		},
+		{
+			"name": "payment",
+			"displayName": "Платежи",
+			"description": "Данные платежей",
+			"fields": [
+				{
+					"name": "id",
+					"type": "SysGUID",
+					"displayName": ""
+				},
+				{
+					"name": "recipientidentifier",
+					"type": "SysString",
+					"displayName": "УРН получателя"
+				},
+				{
+					"name": "paymentId",
+					"type": "SysString",
+					"displayName": "УИП"
+				},
+				{
+					"name": "supplier_bill_id",
+					"type": "SysString",
+					"displayName": "УИН"
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа"
+				},
+				{
+					"name": "amount",
+					"type": "SysMoney",
+					"displayName": "Сумма, руб"
+				},
+				{
+					"name": "payment_date",
+					"type": "SysTimeDate",
+					"displayName": "Прием к исполнению"
+				},
+				{
+					"name": "receipt_date",
+					"type": "SysTimeDate",
+					"displayName": "Поступление распоряжения"
+				},
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК"
+				},
+				{
+					"name": "oktmo",
+					"type": "SysString",
+					"displayName": "ОКТМО"
+				},
+				{
+					"name": "delivery_date",
+					"type": "SysTimeDate",
+					"displayName": "Отсылка документов"
+				},
+				{
+					"name": "esia_id",
+					"type": "SysString",
+					"displayName": "Идентификатор в ЕСИА"
+				},
+				{
+					"name": "payment_trans_kind",
+					"type": "transkind_type_enum",
+					"displayName": "Вид операции"
+				},
+				{
+					"name": "payment_name",
+					"type": "SysString",
+					"displayName": "Наименование принявшего платеж"
+				},
+				{
+					"name": "payment_bik",
+					"type": "SysString",
+					"displayName": "БИК платежа"
+				},
+				{
+					"name": "payment_correspondentbankaccount",
+					"type": "SysString",
+					"displayName": "Корреспондентский счет платежа"
+				},
+				{
+					"name": "ufk",
+					"type": "SysString",
+					"displayName": "Код ТОФК/УРН ТОФК"
+				},
+				{
+					"name": "other",
+					"type": "SysString",
+					"displayName": "Признак иного платежа"
+				},
+				{
+					"name": "payeridentifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "payer_type",
+					"type": "SysString",
+					"displayName": "Тип плательщика"
+				},
+				{
+					"name": "payer_doctype",
+					"type": "SysString",
+					"displayName": "Тип документа"
+				},
+				{
+					"name": "payer_series_number",
+					"type": "SysString",
+					"displayName": "Серия и номер"
+				},
+				{
+					"name": "payer_inn",
+					"type": "SysString",
+					"displayName": "ИНН плательщика"
+				},
+				{
+					"name": "payer_kpp",
+					"type": "SysString",
+					"displayName": "КПП плательщик"
+				},
+				{
+					"name": "payer_kio",
+					"type": "SysString",
+					"displayName": "КИО плательщика"
+				},
+				{
+					"name": "payer_name",
+					"type": "SysString",
+					"displayName": "Плательщик"
+				},
+				{
+					"name": "payer_account",
+					"type": "SysString",
+					"displayName": "Номер счета плательщика"
+				},
+				{
+					"name": "payee_name",
+					"type": "SysString",
+					"displayName": "Наименование организации получателя"
+				},
+				{
+					"name": "payee_inn",
+					"type": "SysString",
+					"displayName": "ИНН организации"
+				},
+				{
+					"name": "payee_kpp",
+					"type": "SysString",
+					"displayName": "КПП организации"
+				},
+				{
+					"name": "payee_ogrn",
+					"type": "SysString",
+					"displayName": "ОГРН организации"
+				},
+				{
+					"name": "payee_accountnumber",
+					"type": "SysString",
+					"displayName": "Номер счета получателя"
+				},
+				{
+					"name": "payee_bank_name",
+					"type": "SysString",
+					"displayName": "Наименование банка"
+				},
+				{
+					"name": "payee_bik",
+					"type": "SysString",
+					"displayName": "БИК получателя"
+				},
+				{
+					"name": "payee_correspondentbankaccount",
+					"type": "SysString",
+					"displayName": "Корреспондентский счет получателя"
+				},
+				{
+					"name": "status",
+					"type": "SysString",
+					"displayName": "Статус плательщика"
+				},
+				{
+					"name": "payt_reason",
+					"type": "SysString",
+					"displayName": "Основание платежа"
+				},
+				{
+					"name": "tax_period",
+					"type": "SysString",
+					"displayName": "Налоговый период"
+				},
+				{
+					"name": "tax_doc_number",
+					"type": "SysString",
+					"displayName": "Номер документа"
+				},
+				{
+					"name": "tax_doc_date",
+					"type": "SysString",
+					"displayName": "Дата документа"
+				},
+				{
+					"name": "acc_doc_no",
+					"type": "SysString",
+					"displayName": "Номер платежного документа"
+				},
+				{
+					"name": "acc_doc_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата платежного документа"
+				},
+				{
+					"name": "budget_trans_kind",
+					"type": "transkind_type_enum",
+					"displayName": "Вид операции"
+				},
+				{
+					"name": "payt_no",
+					"type": "SysString",
+					"displayName": "Номер частичного платежа"
+				},
+				{
+					"name": "trans_content",
+					"type": "SysString",
+					"displayName": "Содержание операции"
+				},
+				{
+					"name": "sum_residual_payt",
+					"type": "SysMoney",
+					"displayName": "Остаток платежа"
+				},
+				{
+					"name": "partialpayt_acc_doc_no",
+					"type": "SysString",
+					"displayName": "Номер платежного документа частичного платежа"
+				},
+				{
+					"name": "partialpayt_acc_doc_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата платежного документа частичного платежа"
+				},
+				{
+					"name": "meaning",
+					"type": "meaning_type_enum",
+					"displayName": "Статус изменений платежа"
+				},
+				{
+					"name": "partialpayt_reason",
+					"type": "SysString",
+					"displayName": "Основание изменений"
+				},
+				{
+					"name": "change_date",
+					"type": "SysTimeDate",
+					"displayName": "Уточнение информации об уплате"
+				},
+				{
+					"name": "service_provided",
+					"type": "SysString",
+					"displayName": "статус Услуга предоставлена"
+				},
+				{
+					"name": "org_name_recipientidentifier_calc",
+					"type": "payment_organization_name_by_sender_identifier",
+					"displayName": "Организация-получатель"
+				},
+				{
+					"name": "payment_exec_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата исполнения распоряжения"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"paymentId",
+						"payer_name",
+						"supplier_bill_id",
+						"purpose",
+						"payment_date",
+						"org_name_recipientidentifier_calc",
+						"amount"
+					]
+				}
+			},
+			"methods": [
+				{
+					"name": "reestr_delete",
+					"displayName": "Удалить пользователя",
+					"static": true,
+					"fields": [],
+					"isEnabled": "function() { return true;}"
+				},
+				{
+					"name": "payment_actualize",
+					"displayName": "уточнить данные",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"visible": false
+					},
+					{
+						"name": "sysDelete",
+						"displayName": "Удалить",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Method",
+						"object": "reestr_delete"
+					},
+					{
+						"name": "sysEdit",
+						"displayName": "Просмотреть",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"icon": "search",
+						"actionType": "Form",
+						"object": "0bc5042d-a68e-496e-909a-00ec9a2c0c1f"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"displayName": "Просмотреть",
+						"visible": "return countOfSelectedRecords == 1;",
+						"actionType": "Form",
+						"object": "0bc5042d-a68e-496e-909a-00ec9a2c0c1f"
+					},
+					// https://rm.mfc.ru/issues/55485
+					// {
+					// 	// asd
+					// 	"name": "createRefundMenu",
+					// 	"displayName": "Оформить возврат",
+					// 	"visible": "return countOfSelectedRecords == 1;",
+					// 	"icon": "reply",
+					// 	"actionType": "Form",
+					// 	"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+					// },
+					{
+						"name": "actualizePaymentMenu",
+						"displayName": "Уточнить данные",
+						"visible": "return countOfSelectedRecords == 1;",
+						"icon": "info",
+						"actionType": "Method",
+						"object": "payment_actualize"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "0bc5042d-a68e-496e-909a-00ec9a2c0c1f"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false
+					},
+					{
+						"name": "onDelete",
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "refund",
+			"displayName": "Возврат денежных средств",
+			"description": "Возврат денежных средств",
+			"fields": [
+				{
+					"name": "status",
+					"type": "refund_status_enum",
+					"displayName": "Статус"
+				},
+				{
+					"name": "cash_type",
+					"type": "SysInt",
+					"displayName": "Вид средств"
+				},
+				{
+					"name": "budget_level",
+					"type": "SysInt",
+					"displayName": "Уровень бюджета"
+				},
+				{
+					"name": "refund_date",
+					"type": "SysDate",
+					"displayName": "Дата возврата"
+				},
+				{
+					"name": "refund_id",
+					"type": "SysString",
+					"displayName": "УИВ"
+				},
+				{
+					"name": "app_date",
+					"type": "SysDate",
+					"displayName": "Дата заявки на возврат"
+				},
+				{
+					"name": "app_num",
+					"type": "SysString",
+					"displayName": "Номер заявки на возврат"
+				},
+				{
+					"name": "payer_name",
+					"type": "SysString",
+					"displayName": "Наименование плательщика"
+				},
+				{
+					"name": "payeridentifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "bank_account",
+					"type": "SysString",
+					"displayName": "Бансковский счет"
+				},
+				{
+					"name": "bik",
+					"type": "SysString",
+					"displayName": "БИК"
+				},
+				{
+					"name": "bank_name",
+					"type": "SysString",
+					"displayName": "Наименование банка"
+				},
+				{
+					"name": "personal_account",
+					"type": "SysString",
+					"displayName": "Номер лицевого счета"
+				},
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК"
+				},
+				{
+					"name": "oktmo",
+					"type": "SysString",
+					"displayName": "ОКТМО"
+				},
+				{
+					"name": "base_doc",
+					"type": "SysString",
+					"displayName": "Документ основание"
+				},
+				{
+					"name": "number",
+					"type": "SysString",
+					"displayName": "Номер"
+				},
+				{
+					"name": "base_doc_date",
+					"type": "SysDate",
+					"displayName": "Дата документа"
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа"
+				},
+				{
+					"name": "amount",
+					"type": "SysMoney",
+					"displayName": "Сумма возврата"
+				},
+				{
+					"name": "paymentid",
+					"type": "SysString",
+					"displayName": "УИП"
+				},
+				{
+					"name": "payment",
+					"type": "SysGUID",
+					"displayName": "Id записи платежа"
+				},
+				{
+					"name": "errorcode",
+					"type": "SysString",
+					"displayName": "Код ошибки"
+				},
+				{
+					"name": "errordescription",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"refund_id",
+						"paymentid",
+						"purpose",
+						"payer_name",
+						"amount",
+						"refund_date",
+						"status"
+					]
+				}
+			},
+			"methods": [
+				{
+					"name": "reestr_delete",
+					"displayName": "Удалить пользователя",
+					"static": true,
+					"fields": [],
+					"isEnabled": "function() { return true;}"
+				},
+				{
+					"name": "refund_send",
+					"displayName": "отправить возврат",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysEdit",
+						"displayName": "Редактировать",
+						"visible": "return false;",
+						"actionType": "Form",
+						"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+					},
+					{
+						"name": "sysDelete",
+						"displayName": "Удалить",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Method",
+						"object": "reestr_delete"
+					},
+					{
+						"name": "viewRefundBtn",
+						"displayName": "Просмотреть",
+						"visible": "return countOfSelectedRecords == 1",
+						"color": "light",
+						"icon": "search",
+						"actionType": "Form",
+						"object": "dfb73089-16f2-4782-a2f7-749128d82653"
+					},
+					{
+						"name": "refundSendBtn",
+						"displayName": "Отправить",
+						"visible": "return false",
+						"color": "light",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "refund_send"
+					},
+					{
+						"name": "refundAnnulBtn",
+						"displayName": "Аннулировать",
+						"visible": "return false;",
+						"color": "light",
+						"icon": "remove",
+						"actionType": "Form",
+						"object": "e358b39c-51b0-4b68-a89e-86b6fb5d7b6f"
+					},
+					{
+						"name": "refundDeannulBtn",
+						"displayName": "Деаннулировать",
+						"visible": "return false;",
+						"color": "light",
+						"icon": "return",
+						"actionType": "Form",
+						"object": "47044064-c1ad-432f-8ea3-6681fb70615b"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"visible": "return false;",
+						"icon": "edit",
+						"actionType": "Form",
+						"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+					},
+					{
+						"name": "viewRefundMenu",
+						"displayName": "Просмотреть",
+						"visible": "return countOfSelectedRecords == 1",
+						"icon": "search",
+						"actionType": "Form",
+						"object": "dfb73089-16f2-4782-a2f7-749128d82653"
+					},
+					{
+						"name": "refundSendMenu",
+						"displayName": "Отправить",
+						"visible": "return false",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "refund_send"
+					},
+					{
+						"name": "refundAnnulMenu",
+						"displayName": "Аннулировать",
+						"visible": "return false;",
+						"enabled": "true",
+						"icon": "remove",
+						"actionType": "Form",
+						"object": "e358b39c-51b0-4b68-a89e-86b6fb5d7b6f"
+					},
+					{
+						"name": "refundDeannulMenu",
+						"displayName": "Деаннулировать",
+						"visible": "return false;",
+						"enabled": "true",
+						"icon": "return",
+						"actionType": "Form",
+						"object": "47044064-c1ad-432f-8ea3-6681fb70615b"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "dfb73089-16f2-4782-a2f7-749128d82652"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false
+					},
+					{
+						"name": "onDelete",
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "charge_data_template",
+			"displayName": "Шаблоны начислений",
+			"description": "",
+			"fields": [
+				{
+					"name": "name",
+					"type": "SysString",
+					"displayName": "Наименование шаблона",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				//
+				// ***** ДАННЫЕ НАЧИСЛЕНИЙ ***** //
+				//
+				{
+					"name": "total_amount",
+					"type": "SysMoney",
+					"displayName": "Сумма начисления, руб",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "oktmo",
+					"type": "SysString",
+					"displayName": "ОКТМО"
+				},
+				{
+					"name": "origin",
+					"type": "SysBoolean",
+					"displayName": "Предварительное начисление"
+				},
+				{
+					"name": "status",
+					"type": "payerstatus_title_relation",
+					"displayName": "Статус плательщика",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "payt_reason",
+					"type": "paytreason_title_relation",
+					"displayName": "Основание платежа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "tax_period",
+					"type": "SysString",
+					"displayName": "Налоговый период",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "tax_docnumber",
+					"type": "SysString",
+					"displayName": "Номер документа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "tax_doc_date",
+					"type": "SysString",
+					"displayName": "Дата документа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "valid_until",
+					"type": "SysString",
+					"displayName": "Срок актуальности начисления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"name",
+						"total_amount",
+						"purpose",
+						"kbk",
+						"oktmo"
+					]
+				},
+				"customGroups": [
+					{
+						"displayName": "Шаблон начисления",
+						"isEnabled": "function() { return true; }",
+						"fields": [
+							"name",
+							"total_amount"
+						]
+					}
+				]
+			},
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"displayName": "Добавить",
+						"actionType": "Form",
+						"object": "55429186-3534-46d1-b55d-5362198e06e0"
+					},
+					{
+						"name": "sysEdit",
+						"displayName": "Редактировать",
+						"enabled": "return countOfSelectedRecords == 1",
+						"icon": "pencil",
+						"actionType": "Form",
+						"object": "55429186-3534-46d1-b55d-5362198e06e0"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"visible": "return countOfSelectedRecords == 1;",
+						"icon": "pencil",
+						"actionType": "Form",
+						"object": "55429186-3534-46d1-b55d-5362198e06e0"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "55429186-3534-46d1-b55d-5362198e06e0"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false
+					},
+					{
+						"name": "onDelete",
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "charge_data",
+			"displayName": "Данные начислений",
+			"description": "",
+			"fields": [
+				{
+					"name": "total_amount",
+					"type": "SysMoney",
+					"displayName": "Сумма начисления, руб"
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа"
+				},
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК"
+				},
+				{
+					"name": "oktmo",
+					"type": "SysString",
+					"displayName": "ОКТМО"
+				},
+				{
+					"name": "origin",
+					"type": "SysBoolean",
+					"displayName": "Предварительное начисление"
+				},
+				{
+					"name": "status",
+					"type": "payerstatus_title_relation",
+					"displayName": "Статус плательщика"
+				},
+				{
+					"name": "payt_reason",
+					"type": "paytreason_title_relation",
+					"displayName": "Основание платежа"
+				},
+				{
+					"name": "tax_period",
+					"type": "SysString",
+					"displayName": "Налоговый период"
+				},
+				{
+					"name": "tax_docNumber",
+					"type": "SysString",
+					"displayName": "Номер документа"
+				},
+				{
+					"name": "tax_doc_date",
+					"type": "SysString",
+					"displayName": "Дата документа"
+				}
+			]
+		},
+		{
+			"name": "responses_log",
+			"displayName": "Лог ошибок ФЗ СМЭВ",
+			"description": "Ошибки при обработке ответов СМЭВ",
+			"fields": [
+				{
+					"name": "id_response",
+					"type": "id_responses_relation",
+					"readOnly": true
+				},
+				{
+					"name": "reccode",
+					"displayName": "Место ошибки",
+					"readOnly": true
+				},
+				{
+					"name": "recdescription",
+					"displayName": "Текст ошибки",
+					"readOnly": true
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"id_response",
+						"reccode",
+						"recdescription",
+						"reccreated"
+					]
+				}
+			}
+		},
+		{
+			"name": "Users",
+			"displayName": "Пользователи",
+			"description": "Информация о пользователях системы",
+			"fields": [
+				{
+					"name": "login",
+					"type": "SysString",
+					"displayName": "Логин"
+				},
+				{
+					"name": "organizationid",
+					"type": "organization_name_relation",
+					"displayName": "Наименование организации"
+				},
+				{
+					"name": "charge_organization_read",
+					"type": "SysBoolean",
+					"displayName": "Просмотр начислений своей организации"
+				},
+				{
+					"name": "charge_organization_write",
+					"type": "SysBoolean",
+					"displayName": "Редактирование начислений своей организации"
+				},
+				{
+					"name": "fio",
+					"type": "user_fio",
+					"displayName": "ФИО"
+				},
+				{
+					"name": "role",
+					"type": "user_role",
+					"displayName": "Роль"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"login",
+						"fio",
+						"organizationid",
+						"role",
+						"charge_organization_read",
+						"charge_organization_write"
+					]
+				}
+			},
+			"methods": [
+				{
+					"name": "users_delete",
+					"displayName": "Удалить пользователя",
+					"static": true,
+					"fields": [],
+					"isEnabled": "function() { return true;}"
+				}
+			],
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"actionType": "Form",
+						"object": "33cd93e6-93ff-407e-b2bb-7094a4023b35"
+					},
+					{
+						"name": "sysEdit",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Form",
+						"object": "33cd93e6-93ff-407e-b2bb-7094a4023b35"
+					},
+					{
+						"name": "sysDelete",
+						"displayName": "Удалить",
+						"enabled": "return countOfSelectedRecords == 1;",
+						"actionType": "Method",
+						"object": "users_delete"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					},
+					{
+						"name": "infoBtn",
+						"displayName": " ",
+						"enabled": true,
+						"visible": true,
+						"icon": "question-circle-o",
+						"color": "light",
+						"actionType": "Form",
+						"object": "68740540-4e03-4d85-841e-7fd5e48d1349"
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "33cd93e6-93ff-407e-b2bb-7094a4023b35"
+					},
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"icon": "pencil",
+						"visible": "return countOfSelectedRecords == 1;",
+						"actionType": "Form",
+						"object": "33cd93e6-93ff-407e-b2bb-7094a4023b35"
+					},
+					{
+						"name": "onDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{ // Добавил недоступным Enter поскольку без него нажатие на Del работает (баг)
+						"name": "pressEnter",
+						"enabled": false,
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "organization",
+			"displayName": "Организации",
+			"description": "Организации, являющиеся получателем средств",
+			"fields": [
+				{
+					"name": "sender_role",
+					"type": "senderrole_title_relation",
+					"displayName": "Роль по умолчанию",
+					"validationRules": [
+						{
+							"type": "required"
+						}
+					]
+				},
+				{
+					"name": "sender_roles",
+					"type": "senderrole_codes_relation",
+					"displayName": "Роли ГИС ГМП"
+				},
+				{
+					"name": "sender_identifier",
+					"type": "SysString",
+					"displayName": "УРН",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^([0-9a-fA-F]{6})$",
+							"message": "Некорректный УРН"
+						}
+					]
+				},
+				{
+					"name": "code_ubp",
+					"type": "SysString",
+					"displayName": "Код организации",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(\\w{5}||\\w{8})$",
+							"message": "Некорректный код организации"
+						}
+					]
+				},
+				{
+					"name": "issender",
+					"type": "SysBoolean",
+					"displayName": "Участник прямого взаимодействия"
+				},
+				{
+					"name": "originator_id",
+					"type": "SysString",
+					"displayName": "УРН участника косвенного взаимодействия"
+				},
+				{
+					"name": "originator_role",
+					"type": "SysString",
+					"displayName": "Роль участника косвенного взаимодействия"
+				},
+				{
+					"name": "name",
+					"type": "SysString",
+					"displayName": "Наименование организации",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^([^\\s]+(\\s+[^\\s]+)*)$",
+							"message": "Некорректное наименование"
+						},
+						{
+							"type": "stringLength",
+							"max": 160,
+							"message": "Слишком длинное наименование"
+						}
+					]
+				},
+				{
+					"name": "inn",
+					"type": "SysString",
+					"displayName": "ИНН",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(([^0^\\D]\\d|\\d[^0^\\D])\\d{8})$",
+							"message": "Некорректный ИНН"
+						}
+					]
+				},
+				{
+					"name": "kpp",
+					"type": "SysString",
+					"displayName": "КПП",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(([^0^\\D]\\d|\\d[^0^\\D])\\d{2}[A-Z0-9]{2}\\d{3})$",
+							"message": "Некорректный КПП"
+						}
+					]
+				},
+				{
+					"name": "ogrn",
+					"type": "SysString",
+					"displayName": "ОГРН",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(\\d{13})$",
+							"message": "Некорректный КПП"
+						}
+					]
+				},
+				{
+					"name": "account_number",
+					"type": "SysString",
+					"displayName": "Номер счета получателя средств (номер казначейского счета)",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(\\d{20})$",
+							"message": "Некорректный номер счета"
+						},
+						{
+							"type": "custom",
+							"validationCallback": "function() { if((((activeRecord.account_number.substring(0,5) == '03100') || (activeRecord.account_number.substring(0,5) == '03212')||(activeRecord.account_number.substring(0,5) == '03222')||(activeRecord.account_number.substring(0,5) == '03232')||(activeRecord.account_number.substring(0,5) == '03242')||(activeRecord.account_number.substring(0,5) == '03252')||(activeRecord.account_number.substring(0,5) == '03262')||(activeRecord.account_number.substring(0,5) == '03272')||(activeRecord.account_number.substring(0,5) == '03214')||(activeRecord.account_number.substring(0,5) == '03224')||(activeRecord.account_number.substring(0,5) == '03234')||(activeRecord.account_number.substring(0,5) == '03254'))&&(activeRecord.correspondent_bank_account.substring(0,5) == '40102'))||(((activeRecord.account_number.substring(0,5) == '40503')||(activeRecord.account_number.substring(0,5) == '40603')||(activeRecord.account_number.substring(0,5) == '40703'))&&(activeRecord.account_number.substring(13,14) == '4'))) {return true;} else return false;}",
+							"message": "Проверьте корректность указанных номеров счета получателя средств и единого казначейского счета. Уточнить попадает ли счет получателя средств в перечень для передачи начислений в ГИС ГМП можно в ТОФК"
+						}
+					]
+				},
+				{
+					"name": "bank_name",
+					"type": "SysString",
+					"displayName": "Наименование банка",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^\\s]+(\\s+[^\\s]+)*)$",
+							"message": "Некорректное наименование банка"
+						},
+						{
+							"type": "stringLength",
+							"max": 200,
+							"message": "Слишком длинное наименование"
+						}
+					]
+				},
+				{
+					"name": "bik",
+					"type": "SysString",
+					"displayName": "БИК",
+					"validationRules": [
+						{
+							"type": "required"
+						},
+						{
+							"type": "pattern",
+							"pattern": "^(\\d{9})$",
+							"message": "Некорректный БИК"
+						}
+					]
+				},
+				{
+					"name": "correspondent_bank_account",
+					"type": "SysString",
+					"displayName": "Номер единого казначейского счета или корреспондентского счета кредитной организации",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^(\\d{20})$",
+							"message": "Некорректный номер"
+						}
+					]
+				},
+				{
+					"name": "page_number",
+					"type": "SysInt",
+					"displayName": ""
+				},
+				{
+					"name": "parent_organization",
+					"type": "parent_organization_name_relation",
+					"displayName": "Головная организация",
+					"lookup": {
+						// Организация не может быть дочкой самой себя и той организации, где она родительская
+						"filter": "(recid ne ${activeRecord.recid} and parent_organization ne ${activeRecord.recid} and (generate_by_api eq false or generate_by_api eq null))"
+					}
+				},
+				{
+					"name": "interaction_through_the_aggregator",
+					"type": "SysBoolean",
+					"displayName": "Взаимодействие через Агрегатора"
+				},
+				{
+					"name": "aggregator",
+					"type": "organization_name_relation",
+					"displayName": "Ведомство агрегатор",
+					"lookup": {
+						"filter": "(recid ne ${activeRecord.recid} and (generate_by_api eq false or generate_by_api eq null))"
+					},
+					"validationRules": [
+						{
+							"type": "required"
+						}
+					]
+				},
+				{
+					"name": "generate_by_api",
+					"type": "SysBoolean",
+					"displayName": "Сгенерированно через api"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"sender_identifier",
+						"sender_role",
+						"sender_roles",
+						"aggregator",
+						"name",
+						"inn",
+						"kpp",
+						"ogrn",
+						"account_number",
+						"bank_name",
+						"bik",
+						"correspondent_bank_account"
+					]
+				},
+				"customGroups": [
+					{
+						"displayName": "Данные организации",
+						"isEnabled": "function() { return true; }",
+						"fields": [
+							"name",
+							"inn",
+							"kpp",
+							"ogrn",
+							"parent_organization"
+						]
+					},
+					{
+						"displayName": "Реквизиты счета организации",
+						"isEnabled": "function() { return true; }",
+						"fields": [
+							"account_number",
+							"bank_name",
+							"bik",
+							"correspondent_bank_account"
+						]
+					},
+					{
+						"displayName": "Регистрационные данные в ГИС ГМП",
+						"isEnabled": "function() { return true; }",
+						"fields": [
+							"sender_identifier",
+							"sender_role",
+							"sender_roles",
+							"roles",
+							"code_ubp",
+							"interaction_through_the_aggregator"
+						],
+						"systemButtons": [
+							{
+								"name": "edit",
+								"visible": false
+							},
+							{
+								"name": "delete",
+								"visible": true
+							},
+							{
+								"name": "export",
+								"visible": false
+							},
+							{
+								"name": "import",
+								"visible": false
+							}
+						]
+					},
+					{
+						"displayName": "Ведомство агрегатор",
+						"isEnabled": "function() { return activeRecord.interaction_through_the_aggregator; }",
+						"fields": [
+							"aggregator"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			],
+			"editToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "showSubsidiaries",
+						"displayName": "Дочерние организации",
+						"tooltip": "Показать дочерние организации",
+						"visible": true,
+						"enabled": true,
+						"color": "outline-dark",
+						"icon": "bars",
+						"actionType": "Form",
+						"object": "81b60c0b-c2e4-4ee7-9bb4-136b7dc9368d"
+					},
+					{
+						"name": "showRoles",
+						"displayName": "Добавить роль ГИС ГМП",
+						"tooltip": "Добавить роли ГИС ГМП организации",
+						"visible": true,
+						"enabled": true,
+						"color": "outline-dark",
+						"icon": "bars",
+						"actionType": "Form",
+						"object": "f0467888-912e-466e-9ea6-ceca4822e1e1"
+					}
+				]
+			}
+		},
+		{
+			"name": "payer",
+			"displayName": "Плательщик",
+			"description": "",
+			"fields": [
+				{
+					"name": "payer_type",
+					"type": "payer_type_enum"
+				},
+				{
+					"name": "fullname",
+					"type": "SysString",
+					"displayName": "Наименование"
+				},
+				{
+					"name": "orgname",
+					"type": "SysString",
+					"displayName": "Название организации"
+				},
+				{
+					"name": "name",
+					"type": "SysString",
+					"displayName": "Имя"
+				},
+				{
+					"name": "lastname",
+					"type": "SysString",
+					"displayName": "Фамилия"
+				},
+				{
+					"name": "middlename",
+					"type": "SysString",
+					"displayName": "Отчество"
+				},
+				{
+					"name": "address_type",
+					"type": "SysString",
+					"displayName": "Тип заполнения адреса"
+				},
+				{
+					"name": "address",
+					"type": "SysString",
+					"displayName": "Адрес"
+				},
+				{
+					"name": "doc_type",
+					"type": "doctype_title_relation",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						}
+					]
+				},
+				{
+					"name": "doc_ser_num",
+					"type": "SysString",
+					"displayName": "Серия и номер документа",
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "pattern",
+							"pattern": "[A-ZА-Я0-9]+",
+							"message": "Недопустимые символы"
+						}
+					]
+				},
+				{
+					"name": "inn",
+					"type": "SysString",
+					"displayName": "ИНН",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{8}$",
+							"message": "Некорректное ИНН"
+						}
+					]
+				},
+				{
+					"name": "kpp",
+					"type": "SysString",
+					"displayName": "КПП",
+					"validationRules": [
+						{
+							"type": "pattern",
+							"pattern": "^([^0^\\D]\\d|\\d[^0^\\D])\\d{2}[A-Z0-9]{2}\\d{3}$",
+							"message": "Некорректное КПП"
+						}
+					]
+				},
+				{
+					"name": "kio",
+					"type": "SysString",
+					"displayName": "КИО",
+					"validationRules": [
+						{
+							"type": "stringLength",
+							"max": 5,
+							"message": "Слишком много символов"
+						}
+					]
+				},
+				{
+					"name": "inn_enable",
+					"type": "SysBoolean",
+					"displayName": "Код налогоплательщика"
+				},
+				{
+					"name": "taxpayerCode",
+					"type": "SysString",
+					"displayName": "Код налогоплательщика"
+				},
+				{
+					"name": "countryReg",
+					"type": "oksm_title_relation",
+					"displayName": "Страна регистрации"
+				},
+				// Формат уточнить!
+				{
+					"name": "payeridentifier",
+					"type": "SysString",
+					"displayName": "Основной идентификатор плательщика"
+				},
+				{
+					"name": "is_dic",
+					"type": "SysBoolean",
+					"displayName": ""
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "Список плательщиков",
+					"fields": [
+						"payer_type",
+						"fullname",
+						"address",
+						"doc_type",
+						"doc_ser_num",
+						"inn",
+						"kpp",
+						"kio",
+						"inn_enable",
+						"taxpayerCode",
+						"countryReg",
+						"payeridentifier"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"payer_type",
+							"name",
+							"lastname",
+							"middlename",
+							"address",
+							"doc_type",
+							"doc_ser_num"
+						],
+						"isEnabled": "function() { return activeRecord.payer_type == \"1\"; }"
+					},
+					{
+						"groupName": "EditGroup2",
+						"displayName": "",
+						"fields": [
+							"payer_type",
+							"orgname",
+							"address",
+							"inn",
+							"kpp",
+							"kio"
+						],
+						"isEnabled": "function() { return activeRecord.payer_type == \"3\"; }"
+					},
+					{
+						"groupName": "EditGroup3",
+						"displayName": "",
+						"fields": [
+							"payer_type",
+							"orgname",
+							"address",
+							"inn",
+							"kpp"
+						],
+						"isEnabled": "function() { return activeRecord.payer_type == \"2\"; }"
+					},
+					{
+						"groupName": "EditGroup4",
+						"displayName": "",
+						"fields": [
+							"payer_type",
+							"name",
+							"lastname",
+							"middlename",
+							"address",
+							"inn"
+						],
+						"isEnabled": "function() { return activeRecord.payer_type == \"4\"; }"
+					}
+				]
+			},
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysAdd",
+						"actionType": "Form",
+						"object": "77c85115-5389-4e23-a385-39796500d7ea"
+					},
+					{
+						"name": "sysEdit",
+						"displayName": "Редактировать",
+						"enabled": "return countOfSelectedRecords == 1",
+						"icon": "pencil",
+						"actionType": "Form",
+						"object": "77c85115-5389-4e23-a385-39796500d7ea"
+					},
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					}
+				]
+			},
+			"contextMenu": {
+				"visible": true,
+				"contextButtons": [
+					{
+						"name": "onEdit",
+						"displayName": "Редактировать",
+						"visible": "return countOfSelectedRecords == 1;",
+						"icon": "pencil",
+						"actionType": "Form",
+						"object": "77c85115-5389-4e23-a385-39796500d7ea"
+					},
+					{
+						"name": "dblClick",
+						"actionType": "Form",
+						"object": "77c85115-5389-4e23-a385-39796500d7ea"
+					},
+					{
+						"name": "pressEnter",
+						"enabled": false
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false
+					},
+					{
+						"name": "onDelete",
+						"visible": false
+					}
+				]
+			}
+		},
+		{
+			"name": "doc_type",
+			"displayName": "Справочник \"Коды типов документов\"",
+			"description": "",
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Наименование"
+				},
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "recdescription",
+					"type": "SysString",
+					"displayName": "Описание"
+				},
+				{
+					"name": "reccreated",
+					"type": "SysTimeDate",
+					"displayName": "Дата создания"
+				},
+				{
+					"name": "recupdated",
+					"type": "SysTimeDate",
+					"displayName": "Дата обновления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recname"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"reccode",
+							"recname"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "sender_role",
+			"displayName": "Справочник \"Роль ГИС ГМП\"",
+			"description": "",
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Наименование"
+				},
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "recdescription",
+					"type": "SysString",
+					"displayName": "Описание"
+				},
+				{
+					"name": "reccreated",
+					"type": "SysTimeDate",
+					"displayName": "Дата создания"
+				},
+				{
+					"name": "recupdated",
+					"type": "SysTimeDate",
+					"displayName": "Дата обновления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recname"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"reccode",
+							"recname"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "payer_status",
+			"displayName": "Справочник \"Статус плательщика\"",
+			"description": "",
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Наименование"
+				},
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "recdescription",
+					"type": "SysString",
+					"displayName": "Описание"
+				},
+				{
+					"name": "reccreated",
+					"type": "SysTimeDate",
+					"displayName": "Дата создания"
+				},
+				{
+					"name": "recupdated",
+					"type": "SysTimeDate",
+					"displayName": "Дата обновления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recname"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"reccode",
+							"recname"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "payt_reason",
+			"displayName": "Справочник \"Основания платежа\"",
+			"description": "",
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Наименование"
+				},
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "recdescription",
+					"type": "SysString",
+					"displayName": "Описание"
+				},
+				{
+					"name": "reccreated",
+					"type": "SysTimeDate",
+					"displayName": "Дата создания"
+				},
+				{
+					"name": "recupdated",
+					"type": "SysTimeDate",
+					"displayName": "Дата обновления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recname"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"reccode",
+							"recname"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "request_history",
+			"displayName": "История запросов в шлюз по записи",
+			"fields": [
+				{
+					"name": "table_name",
+					"type": "SysString",
+					"displayName": "Имя таблицы"
+				},
+				{
+					"name": "record_id",
+					"type": "SysGUID",
+					"displayName": "Идентификатор записи"
+				},
+				{
+					"name": "request_id",
+					"type": "SysGUID",
+					"displayName": "Идентификатор запроса в БД"
+				},
+				{
+					"name": "request_smev_id",
+					"type": "SysGUID",
+					"displayName": "Идентификатор запроса в СМЭВ"
+				},
+				{
+					"name": "request_type",
+					"type": "SysString",
+					"displayName": "Тип запроса"
+				}
+			]
+		},
+		{
+			"name": "api_request",
+			"displayName": "История запросов через api",
+			"fields": [
+				{
+					"name": "method",
+					"type": "SysString",
+					"displayName": "Вызванный метод"
+				},
+				{
+					"name": "data",
+					"type": "SysString",
+					"displayName": "Входные данные"
+				},
+				{
+					"name": "is_charge_send",
+					"type": "SysBoolean",
+					"displayName": "Отправлено ли начисление в ГИС ГМП ФК"
+				},
+				{
+					"name": "is_charge_create",
+					"type": "SysBoolean",
+					"displayName": "Созданно ли начисление в ГИС ГМП ФК"
+				},
+				{
+					"name": "supplier_bill_id",
+					"type": "SysString",
+					"displayName": "УИН созданного начисления",
+					"hasSortingIndex": true
+				},
+				{
+					"name": "yip",
+					"type": "SysString",
+					"displayName": "Уникальный идентификатор платежа"
+				},
+				{
+					"name": "is_error",
+					"type": "SysBoolean",
+					"displayName": "Наличие ошибки"
+				},
+				{
+					"name": "errorcode",
+					"type": "SysString",
+					"displayName": "Код ошибки"
+				},
+				{
+					"name": "error_description",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				},
+				{
+					"name": "is_kvitirovat_send",
+					"type": "SysBoolean",
+					"displayName": "Отправленно ли на квитирование в ГИС ГМП ФК"
+				},
+				{
+					"name": "is_kvitirovat_confirmed",
+					"type": "SysBoolean",
+					"displayName": "Подтверждено ли квитирование в ГИС ГМП ФК"
+				},
+				{
+					"name": "need_to_kvitirovat",
+					"type": "SysBoolean",
+					"displayName": "Нужно ли квитировать начисление"
+				}
+			]
+		},
+		{
+			"name": "api_log",
+			"displayName": "Log ошибок api",
+			"fields": []
+		},
+		{
+			"name": "oksm",
+			"displayName": "Справочник \"ОКСМ\"",
+			"description": "Общероссийский классификатор стран мира",
+			"fields": [
+				{
+					"name": "recname",
+					"type": "SysString",
+					"displayName": "Буквенный код"
+				},
+				{
+					"name": "reccode",
+					"type": "SysString",
+					"displayName": "Код"
+				},
+				{
+					"name": "recdescription",
+					"type": "SysString",
+					"displayName": "Наименование страны"
+				},
+				{
+					"name": "reccreated",
+					"type": "SysTimeDate",
+					"displayName": "Дата создания"
+				},
+				{
+					"name": "recupdated",
+					"type": "SysTimeDate",
+					"displayName": "Дата обновления"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recdescription",
+						"recname"
+					]
+				},
+				"customGroups": [
+					{
+						"groupName": "EditGroup",
+						"displayName": "",
+						"fields": [
+							"reccode",
+							"recdescription",
+							"recname"
+						]
+					}
+				]
+			},
+			"systemButtons": [
+				{
+					"name": "edit",
+					"visible": false
+				},
+				{
+					"name": "delete",
+					"visible": true
+				},
+				{
+					"name": "export",
+					"visible": false
+				},
+				{
+					"name": "import",
+					"visible": false
+				}
+			]
+		},
+		{
+			"name": "trans_kind",
+			"displayName": "Вид операции",
+			"fields": []
+		},
+		{
+			"name": "ed_code",
+			"displayName": "Обозначение электронного сообщения в унифицированных форматах электронных банковских сообщений Банка России, на основании которого сформировано зачисление",
+			"fields": []
+		},
+		{
+			"name": "income",
+			"displayName": "Реестр зачислений",
+			"description": "Перечень всех поступивших в адрес организации зачислений",
+			"fields": [
+				{
+					"name": "recipient_identifier",
+					"type": "SysString",
+					"displayName": "УРН участника – получателя ответа на запрос"
+				},
+				{
+					"name": "supplier_bill_id",
+					"type": "SysString",
+					"displayName": "УИН"
+				},
+				{
+					"name": "purpose",
+					"type": "SysString",
+					"displayName": "Назначение платежа"
+				},
+				{
+					"name": "amount",
+					"type": "SysMoney",
+					"displayName": "Сумма платежа"
+				},
+				{
+					"name": "receipt_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата поступления распоряжения в банк плательщика"
+				},
+				{
+					"name": "payment_exec_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата исполнения распоряжения о переводе денежных средств после осуществления контроля достаточности денежных средств на банковском счете плательщика для исполнения распоряжения"
+				},
+				{
+					"name": "kbk",
+					"type": "SysString",
+					"displayName": "КБК"
+				},
+				{
+					"name": "oktmo",
+					"type": "SysString",
+					"displayName": "Код по ОКТМО, указанный в распоряжении о переводе денежных средств"
+				},
+				{
+					"name": "trans_kind",
+					"type": "SysString",
+					"displayName": "Вид операции"
+				},
+				{
+					"name": "income_id",
+					"type": "SysString",
+					"displayName": "УИЗ"
+					//	TODO сделать поле индексом
+				},
+				{
+					"name": "income_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата и время формирования зачисления"
+				},
+				{
+					"name": "ed_code",
+					"type": "SysString",
+					"displayName": "Обозначение электронного сообщения"
+				},
+				{
+					"name": "ed_no",
+					"type": "SysString",
+					"displayName": "Номер электронного сообщения в течение опердня"
+				},
+				{
+					"name": "ed_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата составления электронного сообщения"
+				},
+				{
+					"name": "transaction_id",
+					"type": "SysString",
+					"displayName": "Номер записи в реестре"
+				},
+				{
+					"name": "charge_off_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата списания денежных средств со счета плательщика"
+				},
+				{
+					"name": "is_uncertain",
+					"type": "SysString",
+					"displayName": "Признак отнесения платежа к невыясненным"
+				},
+				{
+					"name": "income_index_kbk",
+					"type": "SysString",
+					"displayName": "КБК после обработки и классификации кредитовых распоряжений"
+				},
+				{
+					"name": "income_index_oktmo",
+					"type": "SysString",
+					"displayName": "ОКТМО после обработки и классификации кредитовых распоряжений"
+				},
+				{
+					"name": "income_index_inn",
+					"type": "SysString",
+					"displayName": "ИНН получателя после обработки и классификации кредитовых распоряжений"
+				},
+				{
+					"name": "income_index_kpp",
+					"type": "SysString",
+					"displayName": "КПП получателя после обработки и классификации кредитовых распоряжений"
+				},
+				{
+					"name": "income_index_account_number",
+					"type": "SysString",
+					"displayName": "Номер казначейского счета получателя средств после обработки и классификации кредитовых распоряжений"
+				},
+				{
+					"name": "payment_id",
+					"type": "SysString",
+					"displayName": "УИП"
+				},
+				{
+					"name": "payment_bank_name",
+					"type": "SysString",
+					"displayName": "Наименование структурного подразделения кредитной организации или подразделения Банка России, в котором открыт счет"
+				},
+				{
+					"name": "payment_bik",
+					"type": "SysString",
+					"displayName": "БИК структурного подразделения кредитной организации или подразделения Банка России, в котором открыт счет"
+				},
+				{
+					"name": "payment_correspondent_bank_account",
+					"type": "SysString",
+					"displayName": "Номер корреспондентского счета кредитной организации, открытый в подразделении Банка России"
+				},
+				{
+					"name": "payment_ufk",
+					"type": "SysString",
+					"displayName": "Код ТОФК/УРН ТОФК"
+				},
+				{
+					"name": "payment_other",
+					"type": "SysString",
+					"displayName": "Признак иного спосба проведения платежа"
+				},
+				{
+					"name": "payer_identifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "payer_name",
+					"type": "SysString",
+					"displayName": "Плательщик"
+				},
+				{
+					"name": "payer_account",
+					"type": "SysString",
+					"displayName": "Номер счета плательщика (при наличии) в организации, принявшей платеж"
+				},
+				{
+					"name": "payee_name",
+					"type": "SysString",
+					"displayName": "Наименование организации"
+				},
+				{
+					"name": "payee_inn",
+					"type": "SysString",
+					"displayName": "ИНН организации"
+				},
+				{
+					"name": "payee_kpp",
+					"type": "SysString",
+					"displayName": "КПП организации"
+				},
+				{
+					"name": "payee_ogrn",
+					"type": "SysString",
+					"displayName": "ОГРН организации"
+				},
+				{
+					"name": "payee_account_number",
+					"type": "SysString",
+					"displayName": "Номер казначейского счета или номер счета получателя средств в банке получателя"
+				},
+				{
+					"name": "payee_bank_name",
+					"type": "SysString",
+					"displayName": "Наименование ТОФК, структурного подразделения кредитной организации или подразделения Банка России, в котором открыт счет"
+				},
+				{
+					"name": "payee_bank_bik",
+					"type": "SysString",
+					"displayName": "БИК ТОФК, структурного подразделения кредитной организации или подразделения Банка России, в котором открыт счет"
+				},
+				{
+					"name": "payee_correspondent_bank_account",
+					"type": "SysString",
+					"displayName": "Номер единого казначейского счета или номер корреспондентского счета кредитной организации, открытый в подразделении Банка России"
+				},
+				{
+					"name": "status",
+					"type": "SysString",
+					"displayName": "Статус плательщика — реквизит 101 Распоряжения"
+				},
+				{
+					"name": "payt_reason",
+					"type": "SysString",
+					"displayName": "Показатель основания платежа — реквизит 106 Распоряжения"
+				},
+				{
+					"name": "tax_period",
+					"type": "SysString",
+					"displayName": "Показатель налогового периода или код таможенного органа – реквизит 107 Распоряжения"
+				},
+				{
+					"name": "tax_doc_number",
+					"type": "SysString",
+					"displayName": "Показатель номера документа – реквизит 108 Распоряжения"
+				},
+				{
+					"name": "tax_doc_date",
+					"type": "SysString",
+					"displayName": "Показатель даты документа – реквизит 109 Распоряжения"
+				},
+				{
+					"name": "acc_doc_no",
+					"type": "SysString",
+					"displayName": "Номер платежного документа"
+				},
+				{
+					"name": "acc_doc_date",
+					"type": "SysString",
+					"displayName": "Дата платежного документа"
+				},
+				{
+					"name": "meaning",
+					"type": "SysString",
+					"displayName": "Статус, отражающий изменение данных"
+				},
+				{
+					"name": "reason",
+					"type": "SysString",
+					"displayName": "Основание изменения"
+				},
+				{
+					"name": "change_date",
+					"type": "SysTimeDate",
+					"displayName": "Дата и время уточнения информации о зачислении"
+				},
+				{
+					"name": "income_data",
+					"type": "SysFile",
+					"displayName": "Отчет с данными о зачислении"
+				},
+				{
+					"name": "income_request_status",
+					"type": "income_status_enum",
+					"displayName": "Статус запроса"
+				}
+			],
+			"fieldGroups":{
+				"autoList":{
+					"displayName":"",
+					"fields":[
+						"income_id",
+						"payer_name",
+						"supplier_bill_id",
+						"purpose",
+						"income_date",
+						"payee_name",
+						"amount",
+						"income_data"
+					],
+					"unvisibleFields": ["income_request_status"]
+				}
+			},
+			"contextMenu":{
+				"visible":true,
+				"contextButtons":[
+					{
+						"name": "requestInformationMenu",
+						"displayName":"Запросить информацию о зачислении",
+						"visible":"return countOfSelectedRecords == 1",
+						"enabled": "return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status == 3",
+						"icon":"",
+						"actionType": "Method",
+						"object": "income_actualize"
+					},
+					{
+						"name": "onEdit",
+						"displayName": "Просмотреть",
+						"visible": "return countOfSelectedRecords == 1;"
+					}
+				]
+			},
+			"gridToolbar": {
+				"visible": true,
+				"toolbarButtons": [
+					{
+						"name": "sysExport",
+						"visible": false
+					},
+					{
+						"name": "sysImport",
+						"visible": false
+					},
+					{
+						"name": "sysEdit",
+						"displayName": "Просмотреть",
+						"enabled": "return countOfSelectedRecords == 1;"
+					}
+				]
+			},
+			"methods": [
+				{
+					"name": "income_actualize",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			]
+		},
+		{
+			"name": "income_request",
+			"displayName": "Экспорт из ГИС ГМП",
+			"description": "Перечень запросов на выборку зачислений из ГИС ГМП ФК",
+			"fields": [
+				{
+					"name": "income_request_condition",
+					"type": "income_request_condition_enum",
+					"displayName": "Условие запроса"
+				},
+				{
+					"name": "income_request_status",
+					"type": "income_status_enum",
+					"displayName": "Статус запроса"
+				},
+				{
+					"name": "income_request_files",
+					"type": "income_request_files",
+					"displayName": "Данные"
+				},
+				{
+					"name": "request_id",
+					"type": "SysGUID",
+					"displayName": "GUID запроса"
+				},
+				{
+					"name":"payer_type",
+					"type":"SysString",
+					"displayName":"Тип плательщика"
+				},
+				{
+					"name": "payer_identifier_dictionary",
+					"type": "payer_relation",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "payer_identifier",
+					"type": "SysString",
+					"displayName": "Идентификатор плательщика"
+				},
+				{
+					"name": "paymentid",
+					"type": "SysString",
+					"displayName": "УИП"
+				},
+				{
+					"name": "start_date",
+					"type": "SysTimeDate",
+					"displayName": "Начальное время-дата"
+				},
+				{
+					"name": "end_date",
+					"type": "SysTimeDate",
+					"displayName": "Конечное время-дата"
+				},
+				{
+					"name": "income_id",
+					"type": "SysString",
+					"displayName": "УИЗ"
+				},
+				{
+					"name": "inn",
+					"type": "SysString",
+					"displayName": "ИНН получателя средств"
+				},
+				{
+					"name": "kpp",
+					"type": "SysString",
+					"displayName": "КПП получателя средств"
+				},
+				{
+					"name": "errordescription",
+					"type": "SysString",
+					"displayName": "Описание ошибки"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccreated",
+						"income_request_condition",
+						"income_request_status",
+						"income_request_files"
+					]
+				}
+			},
+			"gridToolbar":{
+				"visible":true,
+				"toolbarButtons":[
+					{
+						"name":"sysAdd",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name":"sysEdit",
+						"visible":"return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status == 1",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name":"sysDelete",
+						"visible":"return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status == 1"
+					},
+					{
+						"name":"sysExport",
+						"visible":false
+					},
+					{
+						"name":"sysImport",
+						"visible":false
+					},
+					// {
+					// 	"name":"viewIncomeRequestInfoBtn",
+					// 	"displayName":"Просмотреть",
+					// 	"tooltip":"Просмотр запроса",
+					// 	"visible":true,
+					// 	"enabled":"return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status != 1;",
+					// 	"color":"light",
+					// 	"icon":"search",
+					// 	"actionType":"Form",
+					// 	"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					// },
+					{
+						"name": "income_request_send",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0 && selectedRecords[0].income_request_status == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "income_export_send_button"
+					}
+				]
+			},
+			"contextMenu":{
+				"visible":true,
+				"contextButtons":[
+					{
+						"name":"viewIncomeRequestInfoMenu",
+						"displayName":"Просмотреть",
+						"visible":"return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status != 1;",
+						"icon":"search",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name":"onEdit",
+						"displayName":"Редактировать",
+						"visible":"return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status == 1",
+						"icon":"pencil",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name":"dblClick",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name":"pressEnter",
+						"actionType":"Form",
+						"object":"dcc244c7-79cf-4612-b011-c9bc33a170fc"
+					},
+					{
+						"name": "pressDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "onDelete",
+						"enabled": false,
+						"visible": false
+					},
+					{
+						"name": "income_request_send",
+						"displayName": "Отправить",
+						"tooltip": "Отправить запрос на экспорт",
+						"color": "light",
+						"visible": "function() { return countOfSelectedRecords > 0&& selectedRecords[0].income_request_status == 1; }",
+						"icon": "angle-double-right",
+						"actionType": "Method",
+						"object": "income_export_send_button"
+					},
+					{
+						"name": "on_delete",
+						"enabled": true,
+						"displayName": "Удалить",
+						"icon": "trash",
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status == 1",
+						"actionType": "Method",
+						"object": "delete_from_context"
+					},
+					{
+						"name":"records_smev_history",
+						"displayName": "История запросов",
+						"enabled": true,
+						"visible": "return countOfSelectedRecords == 1 && selectedRecords[0].income_request_status != 1;",
+						"icon": "history",
+						"actionType": "Form",
+						"object": "a788c84e-d962-4419-88e7-26d962989265"
+					}
+				]	
+			},
+			"methods": [
+				{
+					"name": "delete_from_context",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				},
+				{
+					"name": "income_export_send_button",
+					"static": false,
+					"fields": [],
+					"isEnabled": true
+				}
+			]
+		},
+		{
+			"name":"income_request_collections_value",
+			"displayName":"Значения коллекций для условий запроса",
+			"fields":[
+				{
+					"name":"export_id",
+					"type":"income_request_recid",
+					"displayName":"GUID запроса"
+				}
+			]
+		}
+	],
+	"shadowTasks": [
+		{
+			"name": "get_smev_responses",
+			"description": "Фоновая задача обрабатывает ответы СМЭВ",
+			"typeCode": "js",
+			"repeatAfterSec": 20,
+			"enabled": false
+		},
+		{
+			"name": "charge_info_actualize",
+			"description": "Актуализация статуса для не сквитированных или предварительно сквитированных начислений",
+			"typeCode": "js",
+			"repeatAfterSec": 20,
+			"enabled": false
+		},
+		{
+			"name": "send_orginfo_request",
+			"description": "Отправка запроса информации о платежах",
+			"typeCode": "js",
+			"repeatAfterSec": 10,
+			"enabled": false
+		},
+		{
+			"name": "send_massimport_charge",
+			"description": "Массовый импорт начислений",
+			"typeCode": "js",
+			"repeatAfterSec": 60,
+			"enabled": false
+		},
+		{
+			"name": "shadow_task_api_send_kvitirovat",
+			"description": "ФЗ Отправки на квитирование начислений, созданных через api",
+			"typeCode": "js",
+			"repeatAfterSec": 15,
+			"enabled": false
+		},
+		{
+			"name": "shadow_task_api",
+			"description": "ФЗ актуализации статуса запроса api по начислениям",
+			"typeCode": "js",
+			"repeatAfterSec": 20,
+			"enabled": false
+		},
+		{
+			"name": "send_income_request",
+			"description": "ФЗ заполнение реестра зачислений",
+			"typeCode": "js",
+			"repeatAfterSec": 2400,
+			"enabled": false
+		}
+	],
+	"staticMethods": [
+		{
+			"name": "create_charge_api",
+			"displayName": "Создание начисления через api",
+			"fields": [],
+			"isEnabled": true,
+			"isAnonymous": true
+		},
+		{
+			"name": "charge_info_api",
+			"displayName": "Запрос информации по начислению api",
+			"fields": [],
+			"isEnabled": true,
+			"isAnonymous": true
+		},
+		{
+			"name": "send_income_request",
+			"displayName": "ФЗ заполнение реестра начислений",
+			"fields": [],
+			"isEnabled": true,
+			"isAnonymous": false
+		}
+	]
+}
